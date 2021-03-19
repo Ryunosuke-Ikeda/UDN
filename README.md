@@ -4,3 +4,4 @@
 
 ### 制作者
 - Ryonosuke Ikeda
+- Yuuna Yanagida
