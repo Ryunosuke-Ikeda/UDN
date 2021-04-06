@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  app:
+    image: node:lts # バージョン指定も可能 ex. node:12.16.1
+    container_name: test
+    tty: true
+    volumes:
+      - ./src:/src
+    working_dir: "/src"
+    ports: 
+        - "3000:3000"  #ホスト：コンテナ
