@@ -1,12 +1,13 @@
-version: '3'
-
+version: "2"
 services:
-  app:
-    image: node:lts # バージョン指定も可能 ex. node:12.16.1
-    container_name: test
-    tty: true
+  node:
+    image: "node:8"
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
     volumes:
-      - ./src:/src
-    working_dir: "/src"
-    ports: 
-        - "3000:3000"  #ホスト：コンテナ
+      - ./:/home/node/app
+    ports:
+      - "8081:8080"
+    command: "npm start"

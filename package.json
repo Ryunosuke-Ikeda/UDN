@@ -1,0 +1,10 @@
+{
+    "name": "docker_web_app",
+    "version": "1.0.0",
+    "description": "Node.js on Docker",
+    "author": "XXXX XXXX",
+    "main": "myfirst.js",
+    "scripts": {
+      "start": "node myfirst.js"
+    }
+  }
