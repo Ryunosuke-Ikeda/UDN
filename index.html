@@ -68,7 +68,7 @@ $(function() {
     var context = $("canvas").get(0).getContext('2d');
     var socket = io.connect('http://localhost:8123');
     
- 
+
     // サーバからメッセージ受信
     socket.on('send user', function (msg) {
         context.strokeStyle = msg.color;
