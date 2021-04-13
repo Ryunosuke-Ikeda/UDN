@@ -1,6 +1,31 @@
-var http = require('http');
-
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  res.end('Hello World!');
-}).listen(8080);
+var app = require('express')();
+var server = require('http').Server(app);
+var io = require('socket.io')(server, {origins:'localhost:* 127.0.0.1:8123'});
+//var io = require('socket.io')(server, {origins:'http://localhost:8124'});
+server.listen(8123);
+ 
+app.get('/', function (req, res) {
+    res.sendfile(__dirname + '/index.html');
+});
+ 
+io.sockets.on('connection', function (socket) {
+ 
+    // クライアントからメッセージ受信
+    socket.on('clear send', function () {
+ 
+        // 自分以外の全員に送る
+        socket.broadcast.emit('clear user');
+    });
+ 
+    // クライアントからメッセージ受信
+    socket.on('server send', function (msg) {
+ 
+        // 自分以外の全員に送る
+        socket.broadcast.emit('send user', msg);
+    });
+ 
+    // 切断
+    socket.on('disconnect', function () {
+        io.sockets.emit('user disconnected');
+    });
+});

@@ -1,6 +1,6 @@
 version: "2"
 services:
-  node:
+  app:
     image: "node:8"
     user: "node"
     working_dir: /home/node/app
@@ -9,5 +9,5 @@ services:
     volumes:
       - ./:/home/node/app
     ports:
-      - "8081:8080"
+      - "8123:8123"
     command: "npm start"
