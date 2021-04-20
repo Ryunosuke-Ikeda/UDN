@@ -13,10 +13,24 @@ canvas {
     border: 10px solid #603E16;
     background-color: #0B4500;
 }
+#selectArea{
+    display: flex;
+}
+button{
+    background: none;
+	border: none;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+    cursor: pointer;
+}
 #button {
-    position: relative;
     top: -55px;
     left: 345px;
+    width: fit-content;
+    display: block;
+    margin-left: 1rem;
 }
 #save {
     font-size: 120%;
@@ -32,14 +46,16 @@ ul {
     margin: 0;
     padding: 0;
     list-style: none;
+    width: fit-content;
+    display: block;
 }
 li {
     cursor:pointer;
     cursor:hand;
     display:inline-block;
-    border: 1px solid #000;
-    width: 50px;
-    height: 50px;
+    border: 1px solid #707070;
+    width: 85px;
+    height: 30px;
 }
 .material-icons{
     color: #3d3d3d;
@@ -49,6 +65,7 @@ li {
 </head>
 <body>
 <canvas width="700" height="400"></canvas>
+<div id="selectArea">
 <ul>
 <li style="background-color:#000"></li>
 <li style="background-color:#f00"></li>
@@ -62,7 +79,7 @@ li {
 </span></button>
 <button id="clear"><span class="material-icons">delete</span></button>
 </div>
-
+</div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script type="text/javascript">
