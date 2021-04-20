@@ -41,7 +41,11 @@ li {
     width: 50px;
     height: 50px;
 }
+.material-icons{
+    color: #3d3d3d;
+}
 </style>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <canvas width="700" height="400"></canvas>
@@ -54,8 +58,9 @@ li {
 <li style="background-color:#fff"></li>
 </ul>
 <div id="button">
-<input type="button" id="save" value="保存" />
-<input type="button" id="clear" value="消去" />
+<button id="save"><span class="material-icons">file_download
+</span></button>
+<button id="clear"><span class="material-icons">delete</span></button>
 </div>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
