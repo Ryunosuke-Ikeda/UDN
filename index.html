@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8"> 
+<meta charset="utf-8">
 <title>Canvas</title>
 <style>
 body {
@@ -10,7 +10,8 @@ body {
 canvas {
     top: 20px;
     left: 20px;
-    border: 5px solid #ccc;
+    border: 10px solid #603E16;
+    background-color: #0B4500;
 }
 #button {
     position: relative;
@@ -43,7 +44,7 @@ li {
 </style>
 </head>
 <body>
-<canvas width="500" height="400"></canvas>
+<canvas width="700" height="400"></canvas>
 <ul>
 <li style="background-color:#000"></li>
 <li style="background-color:#f00"></li>
@@ -56,7 +57,7 @@ li {
 <input type="button" id="save" value="保存" />
 <input type="button" id="clear" value="消去" />
 </div>
- 
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script type="text/javascript">
@@ -67,7 +68,7 @@ $(function() {
     var drawFlag = false;
     var context = $("canvas").get(0).getContext('2d');
     var socket = io.connect('http://localhost:8123');
-    
+
 
     // サーバからメッセージ受信
     socket.on('send user', function (msg) {
@@ -77,44 +78,44 @@ $(function() {
         context.moveTo(msg.fx, msg.fy);
         context.lineTo(msg.tx, msg.ty);
         context.stroke();
-        context.closePath(); 
+        context.closePath();
     });
- 
+
     socket.on('clear user', function () {
         context.clearRect(0, 0, $('canvas').width(), $('canvas').height());
     });
- 
+
     $('canvas').mousedown(function(e) {
         drawFlag = true;
         fromX = e.pageX - $(this).offset().left - offset;
         fromY = e.pageY - $(this).offset().top - offset;
         return false;  // for chrome
     });
- 
+
     $('canvas').mousemove(function(e) {
         if (drawFlag) {
             draw(e);
         }
     });
- 
+
     $('canvas').on('mouseup', function() {
         drawFlag = false;
     });
- 
+
     $('canvas').on('mouseleave', function() {
         drawFlag = false;
     });
- 
+
     $('li').click(function() {
         context.strokeStyle = $(this).css('background-color');
     });
- 
+
     $('#clear').click(function(e) {
         socket.emit('clear send');
         e.preventDefault();
         context.clearRect(0, 0, $('canvas').width(), $('canvas').height());
     });
- 
+
     function draw(e) {
         var toX = e.pageX - $('canvas').offset().left - offset;
         var toY = e.pageY - $('canvas').offset().top - offset;
@@ -124,13 +125,13 @@ $(function() {
         context.lineTo(toX, toY);
         context.stroke();
         context.closePath();
- 
+
         // サーバへメッセージ送信
         socket.emit('server send', { fx:fromX, fy:fromY, tx:toX, ty:toY, color:context.strokeStyle });
         fromX = toX;
         fromY = toY;
     }
- 
+
     $('#save').click(function() {
         var d = $("canvas")[0].toDataURL("image/png");
         d = d.replace("image/png", "image/octet-stream");
