@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>websocket-chat</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./static/style/style.css">
+    <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- C01. Socket.IOクライアントライブラリの読込み -->
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<!--
+<style>
+    body {
+        margin: 20px;
+    }
+
+    canvas {
+        top: 20px;
+        left: 20px;
+        border: 5px solid #ccc;
+    }
+
+    #button {
+        position: relative;
+        top: -55px;
+        left: 345px;
+    }
+
+    #save {
+        font-size: 120%;
+        width: 80px;
+        height: 50px;
+    }
+
+    #clear {
+        font-size: 120%;
+        width: 80px;
+        height: 50px;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    li {
+        cursor: pointer;
+        cursor: hand;
+        display: inline-block;
+        border: 1px solid #000;
+        width: 50px;
+        height: 50px;
+    }
+</style>
+-->
+</head>
+<body>
+    <div class="container">
+        <h1>WebSocket-Chat</h1>
+        <form class="form-inline">
+            <div class="form-group">
+                <label class="roomLabel" for="rooms">部屋：</label>
+                <select class="form-control" id="rooms">
+                    <option value="room01">部屋01</option>
+                    <option value="room02">部屋02</option>
+                    <option value="room03">部屋03</option>
+                    <option value="room04">部屋04</option>
+                </select>
+                <label class="nameLabel" for="msgForm">名前：</label>
+                <input type="text" class="form-control" id="msgForm">
+            </div>
+            <button type="submit" class="btn btn-primary" id="sendButton">入室</button>
+        </form>
+        <div id="chatLogs"></div>
+    </div>
+
+    <canvas width="500" height="400"></canvas>
+    <ul>
+    <li style="background-color:#000"></li>
+    <li style="background-color:#f00"></li>
+    <li style="background-color:#0f0"></li>
+    <li style="background-color:#00f"></li>
+    <li style="background-color:#ff0"></li>
+    <li style="background-color:#fff"></li>
+    </ul>
+    <div id="button">
+    <input type="button" id="save" value="保存" />
+    <input type="button" id="clear" value="消去" />
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script type="text/javascript">
+        var socket = io.connect(); // C02. ソケットへの接続
+        var isEnter = false;
+        var name = '';
+
+        // C04. server_to_clientイベント・データを受信する
+        socket.on("server_to_client", function(data){appendMsg(data.value)});
+        function appendMsg(text) {
+            $("#chatLogs").append("<div>" + text + "</div>");
+        }
+
+        $("form").submit(function(e) {
+            var message = $("#msgForm").val();
+            var selectRoom = $("#rooms").val();
+            $("#msgForm").val('');
+            if (isEnter) {
+              message = "[" + name + "]: " + message;
+                // C03. client_to_serverイベント・データを送信する
+                socket.emit("client_to_server", {value : message});
+            } else {
+                name = message;
+                var entryMessage = name + "さんが入室しました。";
+                socket.emit("client_to_server_join", {value : selectRoom});
+                // C05. client_to_server_broadcastイベント・データを送信する
+                socket.emit("client_to_server_broadcast", {value : entryMessage});
+                // C06. client_to_server_personalイベント・データを送信する
+                socket.emit("client_to_server_personal", {value : name});
+                changeLabel();
+
+
+                //oekaki開始
+                $(function() {
+                    var offset = 5;
+                    var fromX;
+                    var fromY;
+                    var drawFlag = false;
+                    var context = $("canvas").get(0).getContext('2d');
+                    //var socket = io.connect('http://localhost:3333');
+
+                    var selectRoom = $("#rooms").val();
+
+                    //socket.emit("client_to_server_join", {value : selectRoom});
+
+
+                    // サーバからメッセージ受信
+                    socket.on('send user', function (msg) {
+                        context.strokeStyle = msg.color;
+                        context.lineWidth = 2;
+                        context.beginPath();
+                        context.moveTo(msg.fx, msg.fy);
+                        context.lineTo(msg.tx, msg.ty);
+                        context.stroke();
+                        context.closePath();
+                    });
+
+                    socket.on('clear user', function () {
+                        context.clearRect(0, 0, $('canvas').width(), $('canvas').height());
+                    });
+
+
+                    $('canvas').mousedown(function(e) {
+                        drawFlag = true;
+                        fromX = e.pageX - $(this).offset().left - offset;
+                        fromY = e.pageY - $(this).offset().top - offset;
+                        return false;  // for chrome
+                    });
+
+                    $('canvas').mousemove(function(e) {
+                        if (drawFlag) {
+                            draw(e);
+                        }
+                    });
+
+                    $('canvas').on('mouseup', function() {
+                        drawFlag = false;
+                    });
+
+                    $('canvas').on('mouseleave', function() {
+                        drawFlag = false;
+                    });
+
+                    $('li').click(function() {
+                        context.strokeStyle = $(this).css('background-color');
+                    });
+
+                    $('#clear').click(function(e) {
+                        socket.emit('clear send');
+                        e.preventDefault();
+                        context.clearRect(0, 0, $('canvas').width(), $('canvas').height());
+                    });
+
+                    function draw(e) {
+                        var toX = e.pageX - $('canvas').offset().left - offset;
+                        var toY = e.pageY - $('canvas').offset().top - offset;
+                        context.lineWidth = 2;
+                        context.beginPath();
+                        context.moveTo(fromX, fromY);
+                        context.lineTo(toX, toY);
+                        context.stroke();
+                        context.closePath();
+
+
+                        // サーバへメッセージ送信
+                        socket.emit('server send', { fx:fromX, fy:fromY, tx:toX, ty:toY, color:context.strokeStyle });
+                        fromX = toX;
+                        fromY = toY;
+
+                    }
+
+
+                    $('#save').click(function() {
+                        var d = $("canvas")[0].toDataURL("image/png");
+                        d = d.replace("image/png", "image/octet-stream");
+                        window.open(d,"save");
+                    });
+                });
+                ////oekakiおわり
+
+            }
+            e.preventDefault();
+        });
+
+        function changeLabel() {
+            $(".nameLabel").text("メッセージ：");
+            $("#rooms").prop("disabled", true);
+            $("button").text("送信");
+            isEnter = true;
+        }
+
+
+    </script>
+
+</body>
+</html>
