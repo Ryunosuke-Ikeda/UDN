@@ -1,0 +1,57 @@
+body {
+    margin: 20px;
+}
+canvas {
+    top: 20px;
+    left: 20px;
+    border: 10px solid #603E16;
+    background-color: #0B4500;
+}
+#selectArea{
+    display: flex;
+}
+button{
+    background: none;
+	border: none;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+    cursor: pointer;
+}
+#button {
+    top: -55px;
+    left: 345px;
+    width: fit-content;
+    display: block;
+    margin-left: 1rem;
+}
+#save {
+    font-size: 120%;
+    width: 80px;
+    height: 50px;
+}
+#clear {
+    font-size: 120%;
+    width: 80px;
+    height: 50px;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: fit-content;
+    display: block;
+}
+li {
+    cursor:pointer;
+    cursor:hand;
+    display:inline-block;
+    border: 1px solid #707070;
+    width: 85px;
+    height: 30px;
+}
+.material-icons{
+    color: #3d3d3d;
+}
+
