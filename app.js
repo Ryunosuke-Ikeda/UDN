@@ -18,8 +18,13 @@ server.listen(3333);
 const path = require('path');
 
 app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/oekakiChat/top.html')
+})
+
+app.get('/index', function (req, res) {
     res.sendFile(__dirname + '/oekakiChat/index.html');
 });
+
 
 
 // S03. HTTPサーバにソケットをひも付ける（WebSocket有効化）
