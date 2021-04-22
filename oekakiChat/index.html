@@ -9,6 +9,7 @@
         <meta property="og:description" content="黒板に絵をみんなで同時に書くことができます！">
         <meta property="og:site_name" content="黒板であそぼ">
         <meta name="twitter:card" content="summary_large_image">
+        <link rel="stylesheet" href="./static/webpack/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -52,7 +53,7 @@
     </div>
     <script src="./static/js/jquery-3.6.0.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="./static/js/bundle.js"></script>
+    <script src="./static/webpack/bundle.js"></script>
 
     <script type="text/javascript">
         var socket = io.connect(); // C02. ソケットへの接続
