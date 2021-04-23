@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Node.js on Docker",
   "author": "XXXX XXXX",
-  "main": "myfirst.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node myfirst.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "express": "^4.17.1",
