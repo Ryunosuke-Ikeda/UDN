@@ -541,7 +541,7 @@ a #goIcon {
   margin-left: 0.8rem;
 }
 
-body {
+#center {
   position: absolute;
   top: 50%;
   left: 50%;
