@@ -12,8 +12,11 @@ var server = http.createServer(function(req, res) {
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
-var io = require('socket.io')(server, {origins:'localhost:* 127.0.0.1:8124'});
-server.listen(8124);
+/*var io = require('socket.io')(server, {origins:'localhost:* 127.0.0.1:8124'});
+server.listen(8124);*/
+var io = require('socket.io')(server, { origins: '5000:5000' });//元ファイルからの変更点
+const PORT = process.env.PORT || 5000　//変更点
+server.listen(PORT) //変更点
 
 const path = require('path');
 
