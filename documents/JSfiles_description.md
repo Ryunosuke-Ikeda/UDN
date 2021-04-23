@@ -1,5 +1,14 @@
 # 各JSファイルの説明
 
+- app.js
+  - nodeで実行する際に使用
+
+- myfirst.js
+  - dockerで実行する際に使用
+
+- jquery-3.6.0.min.js
+  - minify化されたjQuery(ver.3.6.0)ファイル
+
 - index.js
   - webpackでbundleするために、全てのJSファイルをimportしている
 
