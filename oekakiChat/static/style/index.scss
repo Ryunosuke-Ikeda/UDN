@@ -1,0 +1,11 @@
+#flexArea{
+  display: flex;
+  .conteiner{
+    display: block;
+    width: fit-content;
+  }
+  canvas{
+    display: block;
+    width: fit-content;
+  }
+}
