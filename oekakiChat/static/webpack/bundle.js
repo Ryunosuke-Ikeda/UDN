@@ -9,6 +9,17 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./oekakiChat/static/style/style.scss":
+/*!********************************************!*\
+  !*** ./oekakiChat/static/style/style.scss ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://docker_web_app/./oekakiChat/static/style/style.scss?");
+
+/***/ }),
+
 /***/ "./oekakiChat/static/js/addRoom.js":
 /*!*****************************************!*\
   !*** ./oekakiChat/static/js/addRoom.js ***!
@@ -26,7 +37,7 @@ eval("document.getElementById('addRoom').onclick  = function addRoom() {\n  var 
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _addRoom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addRoom.js */ \"./oekakiChat/static/js/addRoom.js\");\n/* harmony import */ var _addRoom_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_addRoom_js__WEBPACK_IMPORTED_MODULE_0__);\n\n\n\n//# sourceURL=webpack://docker_web_app/./oekakiChat/static/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _addRoom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addRoom.js */ \"./oekakiChat/static/js/addRoom.js\");\n/* harmony import */ var _addRoom_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_addRoom_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _style_style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../style/style.scss */ \"./oekakiChat/static/style/style.scss\");\n\n\n\n\n//# sourceURL=webpack://docker_web_app/./oekakiChat/static/js/index.js?");
 
 /***/ })
 
