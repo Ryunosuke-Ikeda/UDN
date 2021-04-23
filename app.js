@@ -12,8 +12,8 @@ var server = http.createServer(function(req, res) {
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
-var io = require('socket.io')(server, {origins:'localhost:* 127.0.0.1:3333'});
-server.listen(3333);
+var io = require('socket.io')(server, {origins:'localhost:* 127.0.0.1:8124'});
+server.listen(8124);
 
 const path = require('path');
 
