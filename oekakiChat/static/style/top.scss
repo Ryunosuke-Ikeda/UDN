@@ -1,4 +1,4 @@
-#topBtn{
+a{
   width: fit-content;
   background-color: #ffffff;
   position: absolute;
@@ -8,12 +8,10 @@
   transform: translate(-50%, -50%);
   padding: 1rem 2.5rem;
   border-radius: 25px;
-  a{
-    display: flex;
-    align-items: center;
-    font-size: 1.2rem;
-    #goIcon{
-      margin-left: 0.8rem;
-    }
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  #goIcon{
+    margin-left: 0.8rem;
   }
 }
