@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! destyle.css v1.0.15 | MIT License | https://github.com/nicolas-cusan/destyle.css */
 /* Reset box-model */
 /* ============================================ */
@@ -469,14 +470,9 @@ template {
   display: none;
 }
 
-body {
-  margin: 20px;
-}
-
+/* 変数宣言 */
 canvas {
-  top: 20px;
-  left: 20px;
-  border: 10px solid #603E16;
+  border: 6px solid #9B9B9B;
   background-color: #0B4500;
 }
 
@@ -492,14 +488,6 @@ button {
   -moz-appearance: none;
   appearance: none;
   cursor: pointer;
-}
-
-#button {
-  top: -55px;
-  left: 345px;
-  width: fit-content;
-  display: block;
-  margin-left: 1rem;
 }
 
 #save {
@@ -533,4 +521,62 @@ li {
 
 .material-icons {
   color: #3d3d3d;
+}
+
+a {
+  width: fit-content;
+  background-color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem 2.5rem;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+}
+a #goIcon {
+  margin-left: 0.8rem;
+}
+
+body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+#flexArea {
+  display: flex;
+  width: fit-content;
+  margin: 0 auto 2rem;
+}
+#flexArea .container {
+  display: block;
+  width: fit-content;
+  background-color: #ffffff;
+}
+#flexArea canvas {
+  display: block;
+  width: fit-content;
+  margin-right: 1rem;
+}
+
+#selectArea {
+  background-color: #ffffff;
+  height: 3.5rem;
+}
+#selectArea #selectAreaContents {
+  width: fit-content;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+}
+#selectArea #selectAreaContents #button {
+  width: fit-content;
+  display: block;
+  margin-left: 3rem;
 }

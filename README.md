@@ -14,3 +14,6 @@
 - Leon Kunishi
 - Ryunosuke Ikeda
 - Yuuna Yanagida
+
+## &#x1f647; 使用した素材
+- 背景画像：[きまぐれアフター背景素材置場](https://k-after.at.webry.info/)
