@@ -1,7 +1,7 @@
 #flexArea{
   display: flex;
   width: fit-content;
-  margin: 4rem auto 2rem;
+  margin: 2rem auto;
   .container{
     display: block;
     width: fit-content;
@@ -15,4 +15,16 @@
 }
 #selectArea{
   background-color: $BG-color;
+  height: 3.5rem;
+  #selectAreaContents{
+    width: fit-content;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    #button{
+      width: fit-content;
+      display: block;
+      margin-left: 3rem;
+    }
+  }
 }
