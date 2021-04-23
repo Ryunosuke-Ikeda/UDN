@@ -22,7 +22,7 @@ const path = require('path');
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/oekakiChat/top.html')
-})
+});
 app.get('/rouka', function (req, res) {
     res.sendFile(__dirname + '/oekakiChat/rouka.html');
 });
@@ -32,8 +32,6 @@ app.get('/index', function (req, res) {
 app.get('/indexc', function (req, res) {
     res.sendFile(__dirname + '/oekakiChat/index copy.html');
 });
-
-
 
 // S03. HTTPサーバにソケットをひも付ける（WebSocket有効化）
 //var io = socketio.listen(server);
@@ -45,13 +43,14 @@ io.sockets.on('connection', function (socket) {
 
     // roomへの入室は、「socket.join(room名)」
     socket.on('client_to_server_join', function (data) {
+        
         room = data.value;
         socket.join(room);
     });
     // S05. client_to_serverイベント・データを受信する
     socket.on('client_to_server', function (data) {
         // S06. server_to_clientイベント・データを送信する
-        //res.sendFile(__dirname + '/oekakiChat/index.html');
+
         io.to(room).emit('server_to_client', { value: data.value });
     });
 
