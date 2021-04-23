@@ -101,6 +101,7 @@
 
                     // サーバからメッセージ受信
                     socket.on('send user', function (msg) {
+                        tmpColor = context.strokeStyle //色情報を一時保存
                         context.strokeStyle = msg.color;
                         context.lineWidth = 2;
                         context.beginPath();
@@ -108,6 +109,7 @@
                         context.lineTo(msg.tx, msg.ty);
                         context.stroke();
                         context.closePath();
+                        context.strokeStyle = tmpColor //色情報を呼び出し
                     });
 
                     socket.on('clear user', function () {
