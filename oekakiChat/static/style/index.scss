@@ -1,11 +1,18 @@
 #flexArea{
   display: flex;
-  .conteiner{
+  width: fit-content;
+  margin: 4rem auto 2rem;
+  .container{
     display: block;
     width: fit-content;
+    background-color: $BG-color;
   }
   canvas{
     display: block;
     width: fit-content;
+    margin-right: 1rem;
   }
+}
+#selectArea{
+  background-color: $BG-color;
 }

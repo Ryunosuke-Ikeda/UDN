@@ -551,12 +551,20 @@ a #goIcon {
 
 #flexArea {
   display: flex;
+  width: fit-content;
+  margin: 4rem auto 2rem;
 }
-#flexArea .conteiner {
+#flexArea .container {
   display: block;
   width: fit-content;
+  background-color: #ffffff;
 }
 #flexArea canvas {
   display: block;
   width: fit-content;
+  margin-right: 1rem;
+}
+
+#selectArea {
+  background-color: #ffffff;
 }
