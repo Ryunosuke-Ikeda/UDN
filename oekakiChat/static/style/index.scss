@@ -1,21 +1,30 @@
-  #save {
+//test
+#sendButton{
+  margin-left: 4rem;
+}
+
+#save {
       font-size: 120%;
       width: 80px;
       height: 50px;
-  }
-  #clear {
+}
+#clear {
       font-size: 120%;
       height: 50px;
-  }
-  ul {
+}
+ul {
       margin: 0;
       padding: 0;
-  }
-  li {
-      width: 85px;
-      height: 30px;
-      margin: 0 0.3rem;
-  }
+}
+li {
+      width: 40px;
+      height: 40px;
+      margin: 0 0.5rem;
+      border-radius: 25px;
+}
+#center{
+  position: relative;
+}
   #createTheme{
     margin: 0 auto 2rem;
     button{
@@ -23,10 +32,10 @@
       border-radius: 25px;
     }
     p{
-      width: 9rem;
-      margin-right: 2rem;
-      padding: 0.9rem 0;
-      border: 3px outset;
+      width: 7rem;
+      margin-right: 1.5rem;
+      padding: 0.8rem 0;
+      border: 2px outset;
     }
   }
 #responsiveArea{
@@ -65,17 +74,19 @@
       }
     }
     canvas{
-      margin-right: 1rem;
+      margin: 1rem auto;
       border: 7px solid $blackboard-flame;
     }
   }
   #selectArea{
-    height: 4rem;
+    height: 7rem;
     border-radius: 30px;
     #selectAreaContents{
+      height: fit-content;
       margin: 0 auto;
+      flex-direction: column-reverse;
       #button{
-        margin-left: 3rem;
+        margin-left: 0;
       }
     }
   }
@@ -100,7 +111,11 @@
       width: 85px;
       height: 30px;
       margin: 0 0.3rem;
+      border-radius: 0px;
   }
+  #center{
+  position: absolute;
+}
   #createTheme{
     margin: 0 auto 2rem;
     button{
@@ -150,6 +165,7 @@
       }
     }
     canvas{
+      margin: auto;
       margin-right: 1rem;
       border: 7px solid $blackboard-flame;
     }
@@ -157,8 +173,11 @@
   #selectArea{
     height: 4rem;
     border-radius: 30px;
+    flex-direction: row;
     #selectAreaContents{
+      height: auto;
       margin: 0 auto;
+      flex-direction: row;
       #button{
         margin-left: 3rem;
       }

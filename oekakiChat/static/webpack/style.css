@@ -574,7 +574,6 @@ li {
 }
 
 #center {
-  position: absolute;
   top: 50%;
   left: 50%;
   margin-right: -50%;
@@ -707,6 +706,10 @@ a #goIcon {
 
 /* mobileここから */
 /* mobileここまで */
+#sendButton {
+  margin-left: 4rem;
+}
+
 #save {
   font-size: 120%;
   width: 80px;
@@ -724,9 +727,14 @@ ul {
 }
 
 li {
-  width: 85px;
-  height: 30px;
-  margin: 0 0.3rem;
+  width: 40px;
+  height: 40px;
+  margin: 0 0.5rem;
+  border-radius: 25px;
+}
+
+#center {
+  position: relative;
 }
 
 #createTheme {
@@ -737,10 +745,10 @@ li {
   border-radius: 25px;
 }
 #createTheme p {
-  width: 9rem;
-  margin-right: 2rem;
-  padding: 0.9rem 0;
-  border: 3px outset;
+  width: 7rem;
+  margin-right: 1.5rem;
+  padding: 0.8rem 0;
+  border: 2px outset;
 }
 
 #responsiveArea {
@@ -779,18 +787,20 @@ li {
   border-radius: 25px;
 }
 #responsiveArea #flexArea canvas {
-  margin-right: 1rem;
+  margin: 1rem auto;
   border: 7px solid #798079;
 }
 #responsiveArea #selectArea {
-  height: 4rem;
+  height: 7rem;
   border-radius: 30px;
 }
 #responsiveArea #selectArea #selectAreaContents {
+  height: fit-content;
   margin: 0 auto;
+  flex-direction: column-reverse;
 }
 #responsiveArea #selectArea #selectAreaContents #button {
-  margin-left: 3rem;
+  margin-left: 0;
 }
 
 /* PC版デザインここから */
@@ -815,6 +825,11 @@ li {
     width: 85px;
     height: 30px;
     margin: 0 0.3rem;
+    border-radius: 0px;
+  }
+
+  #center {
+    position: absolute;
   }
 
   #createTheme {
@@ -867,15 +882,19 @@ li {
     border-radius: 25px;
   }
   #responsiveArea #flexArea canvas {
+    margin: auto;
     margin-right: 1rem;
     border: 7px solid #798079;
   }
   #responsiveArea #selectArea {
     height: 4rem;
     border-radius: 30px;
+    flex-direction: row;
   }
   #responsiveArea #selectArea #selectAreaContents {
+    height: auto;
     margin: 0 auto;
+    flex-direction: row;
   }
   #responsiveArea #selectArea #selectAreaContents #button {
     margin-left: 3rem;
