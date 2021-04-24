@@ -37,9 +37,6 @@ let memberCount = [];
 io.sockets.on('connection', function(socket) {
     var room = '';
     var name = '';
-    console.log('コネクション数',socket.client.conn.server.clientsCount);
-    io.sockets.emit('count', socket.client.conn.server.clientsCount);
-    console.log(memberCount)
     io.sockets.emit('memberList',memberCount);
 
     // roomへの入室は、「socket.join(room名)」
@@ -101,12 +98,9 @@ io.sockets.on('connection', function(socket) {
         disconnectMember(room,memberCount);
         console.log(memberCount);
         io.sockets.emit('memberList', memberCount);
-        console.log('コネクション数',socket.client.conn.server.clientsCount);
-        io.sockets.emit('count', socket.client.conn.server.clientsCount);
     });
 });
 app.use(express.static(path.join(__dirname, '/oekakiChat')));//chat_roomディレクトリを公開
-
 
 function disconnectMember(room,memberList){
     for(let i=0;i<memberList.length;i++){

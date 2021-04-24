@@ -94,25 +94,18 @@
         var socket = io.connect(); // C02. ソケットへの接続
         var isEnter = false;
         var name = '';
-        var $count = $('#count');
 
-        socket.on('count', function (data) {
-            $count.text(data);
-        });
-        
+        //同時接続人数把握用 部屋の数をいじってください
         socket.on('memberList', function (data) {
-            memberCount = data;
+            roomSize = 3; //部屋の数
+            for (let i = 1; i <= roomSize; i++) {
+                roomName = "room" + i.toString();
+                //if(roomName === undefined)
+                console.log(roomName);
+                document.getElementById(roomName).textContent = roomName + " " + searchMember(data, roomName) + "人が接続中";
+            }
+        });//ここまで同時接続人数把握
 
-            displayMember = 
-
-        });
-        /*socket.on('roomList', function (data) {
-            console.log(data);
-            targetRoom = data
-            roomName = data.replace('room','部屋')
-            document.getElementById(targetRoom).textContent = roomName + " " + searchMember(memberCount,data) + "人が接続中";
-        });*/
- 
         // C04. server_to_clientイベント・データを受信する
         socket.on("server_to_client", function (data) {
             appendMsg(data.value)
@@ -241,17 +234,14 @@
         function outLabel() {
             $("#rooms").prop("disabled", true);
         }
-        function searchMember(memberList) {
-            var newRoom = 0
+        function searchMember(memberList, roomName) {
+            var roomMember = 0;
             for (let i = 0; i <= memberList.length; i++) {
-                if (memberList[i] === room) {
-                    memberNumber += 1;
+                if (roomName === memberList[i]) {
+                    roomMember += 1;
                 }
             }
-            return memberNumber;
-        }
-        function displayMember(memberList){
-            for(let i = 0;i <= member)
+            return roomMember;
         }
 
     </script>
