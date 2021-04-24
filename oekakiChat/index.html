@@ -68,12 +68,11 @@
         <div id="selectArea">
             <div id="selectAreaContents">
                 <ul>
-                    <li style="background-color:#000"></li>
-                    <li style="background-color:#f00"></li>
-                    <li style="background-color:#0f0"></li>
-                    <li style="background-color:#00f"></li>
-                    <li style="background-color:#ff0"></li>
-                    <li style="background-color:#fff"></li>
+                    <li style="background-color:#D61A6A"></li>
+                    <li style="background-color:#E68D13"></li>
+                    <li style="background-color:#F8F13B"></li>
+                    <li style="background-color:#18D37D"></li>
+                    <li style="background-color:#1A54D6"></li>
                 </ul>
                 <div id="button">
                     <button id="save"><span class="material-icons">file_download
@@ -95,7 +94,7 @@
         // C04. server_to_clientイベント・データを受信する
         socket.on("server_to_client", function (data) { appendMsg(data.value) });
         function appendMsg(text) {
-            $("#chatLogs").append("<div class='chatLog'>" + text + "</div>");
+            $("#chatLogs").prepend("<div class='chatLog'>" + text +"</div>");
         }
 
         $("form").submit(function (e) {
@@ -106,7 +105,11 @@
             if (isEnter) {
                 console.log("送ってる");
 
-                message = "[" + name + "]: " + message;
+                var sendTime = new Date();
+                var Hour = sendTime.getHours();
+                var Min = sendTime.getMinutes();
+
+                message = name + "： " + message + "<span id='sendTime'>" + Hour + ":" + Min + "</span>";
                 // C03. client_to_serverイベント・データを送信する
                 socket.emit("client_to_server", { value: message });
             } else {

@@ -18,6 +18,7 @@
     text-align: center;
     margin-right: 2rem;
     padding: 0.9rem 0;
+    border: 3px outset;
   }
 }
 #blackCover{
@@ -47,17 +48,22 @@
     form{
       height: 100%;
       #messageHeader{
-        background-color: #09A8CE;
-        padding: 0.5rem 1.5rem;
+        background-color: $messageTheme;
+        padding: 0.8rem 1.5rem;
         #nameBox{
           margin-left: 1rem;
         }
       }
       #allChatLogs{
-        height: 77.5%;
+        height: 74.7%;
         overflow-y: scroll;
         .chatLog{
           margin: 0.5rem 0.8rem;
+          #sendTime{
+            font-size: 0.6rem;
+            color: #5c5c5c;
+            margin-left: 0.4rem;
+          }
         }
       }
       #messageFooter{
@@ -65,8 +71,8 @@
         bottom: 0;
         width: 100%;
         text-align: center;
-        padding: 0.7rem 0;
-        background-color: #09A8CE;
+        padding: 0.75rem 0;
+        background-color: $messageTheme;
         #msgForm{
           text-align: start;
           margin-right: 0.5rem;
@@ -81,6 +87,8 @@
     display: block;
     width: fit-content;
     margin-right: 1rem;
+    border: 7px solid $blackboard-flame;
+    background-color: $blackboard;
   }
 }
 
@@ -98,7 +106,9 @@
 
 #selectArea{
   background-color: $BG-color;
-  height: 3.5rem;
+  height: 4rem;
+  display: flex;
+  border-radius: 30px;
   #selectAreaContents{
     width: fit-content;
     display: flex;

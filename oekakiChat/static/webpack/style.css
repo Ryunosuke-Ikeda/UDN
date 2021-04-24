@@ -476,15 +476,6 @@ html, body {
   height: 100%;
 }
 
-canvas {
-  border: 6px solid #9B9B9B;
-  background-color: #0B4500;
-}
-
-#selectArea {
-  display: flex;
-}
-
 button {
   background: none;
   border: none;
@@ -503,7 +494,6 @@ button {
 
 #clear {
   font-size: 120%;
-  width: 80px;
   height: 50px;
 }
 
@@ -519,9 +509,9 @@ li {
   cursor: pointer;
   cursor: hand;
   display: inline-block;
-  border: 1px solid #707070;
   width: 85px;
   height: 30px;
+  margin: 0 0.3rem;
 }
 
 .material-icons {
@@ -594,6 +584,7 @@ a #goIcon {
   text-align: center;
   margin-right: 2rem;
   padding: 0.9rem 0;
+  border: 3px outset;
 }
 
 #blackCover {
@@ -628,26 +619,31 @@ a #goIcon {
   height: 100%;
 }
 #flexArea .container form #messageHeader {
-  background-color: #09A8CE;
-  padding: 0.5rem 1.5rem;
+  background-color: #b9f1ff;
+  padding: 0.8rem 1.5rem;
 }
 #flexArea .container form #messageHeader #nameBox {
   margin-left: 1rem;
 }
 #flexArea .container form #allChatLogs {
-  height: 77.5%;
+  height: 74.7%;
   overflow-y: scroll;
 }
 #flexArea .container form #allChatLogs .chatLog {
   margin: 0.5rem 0.8rem;
+}
+#flexArea .container form #allChatLogs .chatLog #sendTime {
+  font-size: 0.6rem;
+  color: #5c5c5c;
+  margin-left: 0.4rem;
 }
 #flexArea .container form #messageFooter {
   position: absolute;
   bottom: 0;
   width: 100%;
   text-align: center;
-  padding: 0.7rem 0;
-  background-color: #09A8CE;
+  padding: 0.75rem 0;
+  background-color: #b9f1ff;
 }
 #flexArea .container form #messageFooter #msgForm {
   text-align: start;
@@ -660,6 +656,8 @@ a #goIcon {
   display: block;
   width: fit-content;
   margin-right: 1rem;
+  border: 7px solid #798079;
+  background-color: #0B4500;
 }
 
 /* スクロールバーここから */
@@ -678,7 +676,9 @@ a #goIcon {
 /* スクロールバーここまで */
 #selectArea {
   background-color: #ffffff;
-  height: 3.5rem;
+  height: 4rem;
+  display: flex;
+  border-radius: 30px;
 }
 #selectArea #selectAreaContents {
   width: fit-content;
