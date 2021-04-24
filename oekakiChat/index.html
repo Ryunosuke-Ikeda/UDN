@@ -30,10 +30,15 @@
             <div class="form-group">
                 <label class="roomLabel" for="rooms">部屋：</label>
                 <select class="form-control" id="rooms">
-                    <option value="room1">部屋1</option>
-                    <option value="room2">部屋2</option>
-                    <option value="room3">部屋3</option>
+                    <!--<option value="room1">部屋1<span id="23">これ</span></option>
+                    <option value="room2">部屋2<span id="2">これ</span></option>
+                    <option value="room3">部屋3<span id="3">これ</span></option>-->
+                    <option value="room1" id="room1">部屋1</option>
+                    <option value="room2" id="room2">部屋2</option>
+                    <option value="room3" id="room3">部屋3</option>
                 </select>
+                <p>接続数:<span id="count"></span></p>
+                <!--テスト用-->
                 <button type="button" id="addRoom"><span class="material-icons">add</span></button>
                 <label class="nameLabel" for="nameForm">名前:</label>
                 <input type="text" class="form-control" id="nameForm">
@@ -78,6 +83,7 @@
                     <button id="save"><span class="material-icons">file_download
                         </span></button>
                     <button id="clear"><span class="material-icons">delete</span></button>
+                    <button type="submit" class="btn btn-primary" id="sendButton">退室</button>
                 </div>
             </div>
         </div>
@@ -91,8 +97,21 @@
         var isEnter = false;
         var name = '';
 
+        //同時接続人数把握用 部屋の数をいじってください
+        socket.on('memberList', function (data) {
+            roomSize = 3; //部屋の数
+            for (let i = 1; i <= roomSize; i++) {
+                roomName = "room" + i.toString();
+                //if(roomName === undefined)
+                console.log(roomName);
+                document.getElementById(roomName).textContent = roomName + " " + searchMember(data, roomName) + "人が接続中";
+            }
+        });//ここまで同時接続人数把握
+
         // C04. server_to_clientイベント・データを受信する
-        socket.on("server_to_client", function (data) { appendMsg(data.value) });
+        socket.on("server_to_client", function (data) {
+            appendMsg(data.value)
+        });
         function appendMsg(text) {
             $("#chatLogs").prepend("<div class='chatLog'>" + text +"</div>");
         }
@@ -113,7 +132,6 @@
                 // C03. client_to_serverイベント・データを送信する
                 socket.emit("client_to_server", { value: message });
             } else {
-                console.log("入った");
                 name = nameMessage;
                 var entryMessage = name + "さんが入室しました。";
                 socket.emit("client_to_server_join", { value: selectRoom });
@@ -121,7 +139,7 @@
                 socket.emit("client_to_server_broadcast", { value: entryMessage });
                 // C06. client_to_server_personalイベント・データを送信する
                 socket.emit("client_to_server_personal", { value: name });
-                changeLabel();
+                enterLabel();
 
 
                 //oekaki開始
@@ -155,8 +173,8 @@
                         context.clearRect(0, 0, $('canvas').width(), $('canvas').height());
                     });
 
-                    /*
 
+                    /*
                     $('canvas').mousedown(function (e) {
                         drawFlag = true;
                         fromX = e.pageX - $(this).offset().left - offset;
@@ -270,13 +288,23 @@
             e.preventDefault();
         });
 
-        function changeLabel() {
-            $("#rooms").prop("disabled", true);
-            isEnter = true;
-            $("#selectRooms").text($("#rooms").val());
-            $("#nameBox").text( $("#nameForm").val());
-        }
+        function enterLabel() {
 
+            $("#sendButton").text("送信");
+            isEnter = true;
+        }
+        function outLabel() {
+            $("#rooms").prop("disabled", true);
+        }
+        function searchMember(memberList, roomName) {
+            var roomMember = 0;
+            for (let i = 0; i <= memberList.length; i++) {
+                if (roomName === memberList[i]) {
+                    roomMember += 1;
+                }
+            }
+            return roomMember;
+        }
 
     </script>
 
