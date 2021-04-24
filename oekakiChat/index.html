@@ -89,6 +89,8 @@
         </div>
     </div>
     <script src="./static/js/jquery-3.6.0.min.js"></script>
+    <script src="./static/js/jquery-ui.js"></script>
+
     <script src="/socket.io/socket.io.js"></script>
     <script src="./static/webpack/bundle.js"></script>
 
@@ -149,6 +151,7 @@
                     var fromY;
                     var drawFlag = false;
                     var context = $("canvas").get(0).getContext('2d');
+
                     //var socket = io.connect('http://localhost:3333');
 
                     var selectRoom = $("#rooms").val();
@@ -179,10 +182,18 @@
                         drawFlag = true;
                         fromX = e.pageX - $(this).offset().left - offset;
                         fromY = e.pageY - $(this).offset().top - offset;
+
+                        //console.log('mousedown')
+                        //console.log($(this).offset().top - offset);
+                        //console.log(e.pageX);
+                        //console.log(fromX)
+
                         return false;  // for chrome
                     });
 
                     $('canvas').mousemove(function (e) {
+                        //console.log('mousemove');
+                        //console.log(drawFlag);
                         if (drawFlag) {
                             draw(e);
                         }
@@ -196,58 +207,39 @@
                         drawFlag = false;
                     });
 
-                    */
+                    
 
                     //sumaho
-                    /*
-                    $('canvas').touchstart(function (e) {
-                        drawFlag = true;
-                        fromX = e.pageX - $(this).offset().left - offset;
-                        fromY = e.pageY - $(this).offset().top - offset;
-                        return false;  // for chrome
-                    });
-
-                    $('canvas').touchmove(function (e) {
-                        if (drawFlag) {
-                            draw(e);
-                        }
-                    });
-                    */
-
-
-                   /* タッチできる環境なら true、そうでないなら false 。*/
-                    var isTouch = ('ontouchstart' in window);
-
                     $('canvas').bind({
-                        'touchstart mousedown': function(e) {
+                        'touchstart': function(e) {
+                            //console.log('touchstart');
+                    
                             drawFlag = true;
-                            fromX = e.pageX - $(this).offset().left - offset;
-                            fromY = e.pageY - $(this).offset().top - offset;
+                            fromX = e.touches[0].clientX - $(this).offset().left - offset;
+                            fromY = e.touches[0].clientY - $(this).offset().top - offset;
+
+                            //console.log($(this).offset().top - offset);
+                            //console.log(e.touches[0].pageX);
+                            //console.log(fromX)
                             return false;  // for chrome
-                        },
+                            
+                        }, 
 
-                        'touchmove mousemove': function(e) {
+                        'touchmove': function(e) {
+                            //console.log('touchmove');
+                            //console.log(drawFlag);
                             if (drawFlag) {
-                            draw(e);
-                        }
+                            draw_sumaho(e)
+                            }
+                        },
+                        'touchend':function(){
+                            drawFlag = false;
+                            //console.log(drawFlag)
 
                         }
+
                     });
-
-                    $('canvas').on('touchend', function () {
-                        drawFlag = false;
-                    });
-
-                    $('canvas').on('mouseup', function () {
-                        drawFlag = false;
-                    });
-
-                    $('canvas').on('mouseleave', function () {
-                        drawFlag = false;
-                    });
-
-                    //
-
+                
                     $('li').click(function () {
                         context.strokeStyle = $(this).css('background-color');
                     });
@@ -274,6 +266,24 @@
                         fromX = toX;
                         fromY = toY;
 
+                    }
+                    
+                    
+                    function draw_sumaho(e) {
+                        var toX = e.touches[0].clientX - $('canvas').offset().left - offset;
+                        var toY = e.touches[0].clientY - $('canvas').offset().top - offset;
+                        context.lineWidth = 2;
+                        context.beginPath();
+                        context.moveTo(fromX, fromY);
+                        context.lineTo(toX, toY);
+                        context.stroke();
+                        context.closePath();
+
+
+                        // サーバへメッセージ送信
+                        socket.emit('server send', { fx: fromX, fy: fromY, tx: toX, ty: toY, color: context.strokeStyle });
+                        fromX = toX;
+                        fromY = toY;
                     }
 
                     $('#save').click(function () {
