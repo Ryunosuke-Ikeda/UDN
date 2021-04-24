@@ -43,7 +43,7 @@ io.sockets.on('connection', function (socket) {
 
     // roomへの入室は、「socket.join(room名)」
     socket.on('client_to_server_join', function (data) {
-        
+        console.log("ようこそ")
         room = data.value;
         socket.join(room);
     });
