@@ -51,7 +51,7 @@
         </div>
         <div id="responsiveArea">
         <div id="flexArea">
-            <canvas width="500" height="400"></canvas>
+            <canvas id="canvas" width="500" height="400"></canvas>
             <div class="container">
                 <form class="form-inline">
                         <div id="messageHeader">
@@ -97,6 +97,14 @@
         var socket = io.connect(); // C02. ソケットへの接続
         var isEnter = false;
         var name = '';
+
+        //画面幅によって黒板の横幅を動的に変更する
+        console.log(window.innerWidth);
+        if(window.innerWidth<950){
+            document.getElementById("canvas").width = 300;
+            document.getElementById("canvas").height = 400;
+        }
+
         //同時接続人数把握用 部屋の数をいじってください
         socket.on('memberList', function (data) {
             roomSize = 3; //部屋の数
