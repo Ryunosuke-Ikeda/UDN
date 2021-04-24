@@ -617,9 +617,9 @@ a #goIcon {
   margin: 0 auto 2rem;
 }
 #flexArea .container {
+  width: 350px;
   height: 400px;
   display: block;
-  width: fit-content;
   margin: auto;
   background-color: #ffffff;
   position: relative;
