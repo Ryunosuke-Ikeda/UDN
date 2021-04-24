@@ -109,7 +109,7 @@
                 var Hour = sendTime.getHours();
                 var Min = sendTime.getMinutes();
 
-                message = "[" + name + "]: " + message + "<span>" + Hour + ":" + Min + "</span>";
+                message = name + "： " + message + "<span id='sendTime'>" + Hour + ":" + Min + "</span>";
                 // C03. client_to_serverイベント・データを送信する
                 socket.emit("client_to_server", { value: message });
             } else {
