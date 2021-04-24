@@ -99,15 +99,19 @@
         socket.on('count', function (data) {
             $count.text(data);
         });
+        
         socket.on('memberList', function (data) {
             memberCount = data;
+
+            displayMember = 
+
         });
-        socket.on('roomList', function (data) {
+        /*socket.on('roomList', function (data) {
             console.log(data);
             targetRoom = data
             roomName = data.replace('room','部屋')
             document.getElementById(targetRoom).textContent = roomName + " " + searchMember(memberCount,data) + "人が接続中";
-        });
+        });*/
  
         // C04. server_to_clientイベント・データを受信する
         socket.on("server_to_client", function (data) {
@@ -237,14 +241,17 @@
         function outLabel() {
             $("#rooms").prop("disabled", true);
         }
-        function searchMember(memberList, room) {
-            for (let i = 0; i < memberList.length; i++) {
-                memberNumber = 0
+        function searchMember(memberList) {
+            var newRoom = 0
+            for (let i = 0; i <= memberList.length; i++) {
                 if (memberList[i] === room) {
                     memberNumber += 1;
                 }
             }
             return memberNumber;
+        }
+        function displayMember(memberList){
+            for(let i = 0;i <= member)
         }
 
     </script>
