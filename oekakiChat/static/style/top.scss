@@ -6,13 +6,13 @@
   height: 100%;
   top: 0px;
   left: 0px;
-  background: #000;
+  background: linear-gradient(#6e017c ,#e05f24, #e69c60 );
   z-index: 1;
 }
 #loader {
   display: none;
   position: fixed;
-  top: 50%;
+  top: 55%;
   left: 50%;
   width: 200px;
   height: 200px;

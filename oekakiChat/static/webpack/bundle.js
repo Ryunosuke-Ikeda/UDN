@@ -37,17 +37,7 @@ eval("document.getElementById('addRoom').onclick  = function addRoom() {\n  var 
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../style/style.scss */ \"./oekakiChat/static/style/style.scss\");\n/* harmony import */ var _loading_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./loading.js */ \"./oekakiChat/static/js/loading.js\");\n/* harmony import */ var _loading_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_loading_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _addRoom_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./addRoom.js */ \"./oekakiChat/static/js/addRoom.js\");\n/* harmony import */ var _addRoom_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_addRoom_js__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\n\n\n//# sourceURL=webpack://docker_web_app/./oekakiChat/static/js/index.js?");
-
-/***/ }),
-
-/***/ "./oekakiChat/static/js/loading.js":
-/*!*****************************************!*\
-  !*** ./oekakiChat/static/js/loading.js ***!
-  \*****************************************/
-/***/ (function() {
-
-eval("$(function () {\n  var h = $(window).height();\n\n  $('#wrap').css('display', 'none');\n  $('#loader-bg ,#loader').height(h).css('display', 'block');\n});\n\n$(function () {\n  setTimeout('stopload()', 2500);\n});\n\nfunction stopload() {\n  $('#wrap').css('display', 'block');\n  $('#loader-bg').delay(900).fadeOut(800);\n  $('#loader').delay(600).fadeOut(300);\n}\n\n\n//# sourceURL=webpack://docker_web_app/./oekakiChat/static/js/loading.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _addRoom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addRoom.js */ \"./oekakiChat/static/js/addRoom.js\");\n/* harmony import */ var _addRoom_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_addRoom_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _style_style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../style/style.scss */ \"./oekakiChat/static/style/style.scss\");\n\n\n\n\n//# sourceURL=webpack://docker_web_app/./oekakiChat/static/js/index.js?");
 
 /***/ })
 

@@ -1,0 +1,31 @@
+.cp-spinner{
+  width:48px;
+  height:48px;
+  display:inline-block;
+  box-sizing:border-box;
+  position:relative
+}
+.cp-meter{
+  border-radius:50%;
+  border-top:solid 6px #ffffff;
+  border-right:solid 6px #ffffff;
+  border-bottom:solid 6px #ffffff;
+  border-left:solid 6px #ffffff;
+  width:100px;
+  height:100px;
+  display:inline-block;
+  box-sizing:border-box
+}
+.cp-meter:before{
+  border-radius:3px;content:" ";
+  width:7px;
+  height:30px;
+  display:inline-block;
+  box-sizing:border-box;
+  background-color:#ffffff;
+  position:absolute;
+  top:15px;
+  left:40px;
+  transform-origin:center bottom;animation:cp-meter-animate-before 1s linear infinite
+}
+@keyframes cp-meter-animate-before{0%{transform:rotate(-45deg)}100%{transform:rotate(315deg)}}
