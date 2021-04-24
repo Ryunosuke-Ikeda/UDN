@@ -41,6 +41,30 @@
             </div>
             <button type="submit" class="btn btn-primary" id="sendButton">入室</button>
         </form>-->
+        <div class="content">
+            <a class="js-modal-open" href="" data-target="modal01">クリックでモーダル1を表示</a><br>
+            <a class="js-modal-open" href="" data-target="modal02">クリックでモーダル2を表示</a><br>
+            <br>
+            <div class="box">box1</div>
+            <div class="box">box2</div>     
+            <div class="box">box3</div>
+            <div class="box">box4</div>
+            <div class="box">box5</div>
+        </div>
+        <div id="modal01" class="modal js-modal">
+            <div class="modal__bg js-modal-close"></div>
+            <div class="modal__content">
+                <p>1つ目モーダルウィンドウです。ここにモーダルウィンドウで表示したいコンテンツを入れます。モーダルウィンドウを閉じる場合は下の「閉じる」をクリックするか、背景の黒い部分をクリックしても閉じることができます。</p>
+                <a class="js-modal-close" href="">閉じる</a>
+            </div><!--modal__inner-->
+        </div><!--modal-->
+        <div id="modal02" class="modal js-modal">
+            <div class="modal__bg js-modal-close"></div>
+            <div class="modal__content">
+                <p>2つ目モーダルウィンドウです。ここにモーダルウィンドウで表示したいコンテンツを入れます。モーダルウィンドウを閉じる場合は下の「閉じる」をクリックするか、背景の黒い部分をクリックしても閉じることができます。</p>
+                <a class="js-modal-close" href="">閉じる</a>
+            </div><!--modal__inner-->
+        </div><!--modal-->
     </div>
         <!-- ここに各教室が動的に生成される -->
         <div id="blackCover"></div>
