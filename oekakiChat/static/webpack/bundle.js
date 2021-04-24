@@ -47,7 +47,17 @@ eval("document.getElementById('createTheme').onclick = function createTheme() {\
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _addRoom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addRoom.js */ \"./oekakiChat/static/js/addRoom.js\");\n/* harmony import */ var _addRoom_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_addRoom_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _createTheme_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createTheme.js */ \"./oekakiChat/static/js/createTheme.js\");\n/* harmony import */ var _createTheme_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_createTheme_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _style_style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../style/style.scss */ \"./oekakiChat/static/style/style.scss\");\n\n\n\n\n\n//# sourceURL=webpack://docker_web_app/./oekakiChat/static/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _rouka_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./rouka.js */ \"./oekakiChat/static/js/rouka.js\");\n/* harmony import */ var _rouka_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_rouka_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _addRoom_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./addRoom.js */ \"./oekakiChat/static/js/addRoom.js\");\n/* harmony import */ var _addRoom_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_addRoom_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _createTheme_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createTheme.js */ \"./oekakiChat/static/js/createTheme.js\");\n/* harmony import */ var _createTheme_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_createTheme_js__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _style_style_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../style/style.scss */ \"./oekakiChat/static/style/style.scss\");\n\n\n\n\n\n\n//# sourceURL=webpack://docker_web_app/./oekakiChat/static/js/index.js?");
+
+/***/ }),
+
+/***/ "./oekakiChat/static/js/rouka.js":
+/*!***************************************!*\
+  !*** ./oekakiChat/static/js/rouka.js ***!
+  \***************************************/
+/***/ (function() {
+
+eval("document.getElementById('sendButton').onclick = function rouka() {\n  document.getElementById(\"rouka\").style = \"display: none;\";\n  document.getElementById(\"center\").style = \"\";\n  document.getElementById(\"BGchange\").style = \"background-image: url('static/images/BG-index.jpeg');\";\n}\n\n\n//# sourceURL=webpack://docker_web_app/./oekakiChat/static/js/rouka.js?");
 
 /***/ })
 
