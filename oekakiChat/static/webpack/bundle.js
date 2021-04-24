@@ -36,7 +36,7 @@ eval("document.getElementById('addRoom').onclick  = function addRoom() {\n  var 
   \*********************************************/
 /***/ (function() {
 
-eval("document.getElementById('createTheme').onclick = function createTheme() {\n\n    var random = Math.floor(Math.random() * 11);\n\n  $.getJSON(\"../static/js/theme.json\", function (data) {\n    //↓actDataの配列内を検索\n    for (var i = 0; i < Object.keys(data.themeData).length; i++) {\n      //↓結果と一致するnameの各データを取得し、画面に出力する\n      if (data.themeData[random] == data.themeData[i]) {\n        /*\n        var parent = document.getElementById(\"createTheme\");\n        var p = document.createElement(\"p\");\n        p.innerHTML = data.themeData[random].shiritoriTheme;\n        parent.appendChild(p);\n*/\n        document.getElementById(\"generateTheme\").textContent = data.themeData[random].shiritoriTheme;\n\n      }\n    }\n  })\n\n}\n\n\n//# sourceURL=webpack://docker_web_app/./oekakiChat/static/js/createTheme.js?");
+eval("document.getElementById('createTheme').onclick = function createTheme() {\n\n  var random = Math.floor(Math.random() * 11);\n\n  $.getJSON(\"../static/js/theme.json\", function (data) {\n    for (var i = 0; i < Object.keys(data.themeData).length; i++) {\n      if (data.themeData[random] == data.themeData[i]) {\n        document.getElementById(\"generateTheme\").textContent = data.themeData[random].shiritoriTheme;\n      }\n    }\n  })\n\n}\n\n\n//# sourceURL=webpack://docker_web_app/./oekakiChat/static/js/createTheme.js?");
 
 /***/ }),
 
