@@ -103,7 +103,6 @@
             roomSize = 15; //部屋の数
             for (let i = 1; i <= roomSize; i++) {
                 roomName = "room" + i.toString();
-                console.log(roomName);
                 document.getElementById(roomName).textContent = searchMember(data, roomName) + "人";
             }
         });//ここまで同時接続人数把握
