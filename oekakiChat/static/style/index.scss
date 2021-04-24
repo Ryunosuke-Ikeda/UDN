@@ -65,6 +65,19 @@
     margin-right: 1rem;
   }
 }
+
+/* スクロールバーここから */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #e2e2e2;
+}
+::-webkit-scrollbar-thumb {
+  background: #a3a3a3;
+}
+/* スクロールバーここまで */
+
 #selectArea{
   background-color: $BG-color;
   height: 3.5rem;
