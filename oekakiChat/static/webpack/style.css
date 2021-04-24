@@ -647,16 +647,27 @@ li {
 
 /* index.htmlここまで */
 a {
-  padding: 1rem 2.5rem;
-  border-radius: 25px;
-  font-size: 1.2rem;
+  padding: 0.8rem 2rem;
+  border-radius: 60px;
+  font-size: 1.2em;
 }
 a #goIcon {
-  margin-left: 0.8rem;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
 }
 
-/* mobileここから */
-/* mobileここまで */
+/* PC版デザインここから */
+@media screen and (min-width: 950px) {
+  a {
+    padding: 1rem 2.5rem;
+    border-radius: 25px;
+    font-size: 1.2rem;
+  }
+  a #goIcon {
+    font-size: 1rem;
+    margin-left: 0.8rem;
+  }
+}
 #rouka {
   position: absolute;
   top: 50%;
