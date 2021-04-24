@@ -519,12 +519,15 @@ button {
   z-index: 2;
 }
 
+#image {
+  display: block;
+}
+
 /* loading ここまで */
 a {
   width: fit-content;
   background-color: #ffffff;
   position: absolute;
-  top: 50%;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
@@ -571,47 +574,49 @@ li {
 }
 
 #center {
-  position: absolute;
   top: 50%;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
 }
 
-#flexArea {
+#responsiveArea {
+  display: flex;
+}
+#responsiveArea #flexArea {
   display: flex;
   width: fit-content;
 }
-#flexArea .container {
+#responsiveArea #flexArea .container {
   display: block;
   margin: auto;
   background-color: #ffffff;
   position: relative;
 }
-#flexArea .container form {
+#responsiveArea #flexArea .container form {
   height: 100%;
 }
-#flexArea .container form #messageHeader {
+#responsiveArea #flexArea .container form #messageHeader {
   background-color: #b9f1ff;
 }
-#flexArea .container form #allChatLogs {
+#responsiveArea #flexArea .container form #allChatLogs {
   overflow-y: scroll;
 }
-#flexArea .container form #allChatLogs .chatLog #sendTime {
+#responsiveArea #flexArea .container form #allChatLogs .chatLog #sendTime {
   color: #5c5c5c;
 }
-#flexArea .container form #messageFooter {
+#responsiveArea #flexArea .container form #messageFooter {
   position: absolute;
   bottom: 0;
   width: 100%;
   text-align: center;
   background-color: #b9f1ff;
 }
-#flexArea .container form #messageFooter #msgForm {
+#responsiveArea #flexArea .container form #messageFooter #msgForm {
   text-align: start;
   background-color: #ffffff;
 }
-#flexArea canvas {
+#responsiveArea #flexArea canvas {
   display: block;
   width: fit-content;
   background-color: #0B4500;
@@ -650,10 +655,16 @@ a {
   padding: 0.8rem 2rem;
   border-radius: 60px;
   font-size: 1.2em;
+  top: 80%;
 }
 a #goIcon {
   font-size: 1.5rem;
   margin-left: 0.5rem;
+}
+
+#image {
+  width: 300px;
+  margin: 4rem auto;
 }
 
 /* PC版デザインここから */
@@ -662,10 +673,16 @@ a #goIcon {
     padding: 1rem 2.5rem;
     border-radius: 25px;
     font-size: 1.2rem;
+    top: 65%;
   }
   a #goIcon {
     font-size: 1rem;
     margin-left: 0.8rem;
+  }
+
+  #image {
+    width: fit-content;
+    margin: 5rem auto;
   }
 }
 #rouka {
@@ -689,6 +706,10 @@ a #goIcon {
 
 /* mobileここから */
 /* mobileここまで */
+#sendButton {
+  margin-left: 4rem;
+}
+
 #save {
   font-size: 120%;
   width: 80px;
@@ -706,9 +727,14 @@ ul {
 }
 
 li {
-  width: 85px;
-  height: 30px;
-  margin: 0 0.3rem;
+  width: 40px;
+  height: 40px;
+  margin: 0 0.5rem;
+  border-radius: 25px;
+}
+
+#center {
+  position: relative;
 }
 
 #createTheme {
@@ -719,58 +745,158 @@ li {
   border-radius: 25px;
 }
 #createTheme p {
-  width: 9rem;
-  margin-right: 2rem;
-  padding: 0.9rem 0;
-  border: 3px outset;
+  width: 7rem;
+  margin-right: 1.5rem;
+  padding: 0.8rem 0;
+  border: 2px outset;
 }
 
-#flexArea {
+#responsiveArea {
+  flex-direction: column-reverse;
+}
+#responsiveArea #flexArea {
+  flex-direction: column;
   margin: 0 auto 2rem;
 }
-#flexArea .container {
+#responsiveArea #flexArea .container {
   width: 350px;
   height: 400px;
 }
-#flexArea .container form #messageHeader {
+#responsiveArea #flexArea .container form #messageHeader {
   padding: 0.8rem 1.5rem;
 }
-#flexArea .container form #messageHeader #nameBox {
+#responsiveArea #flexArea .container form #messageHeader #nameBox {
   margin-left: 1rem;
 }
-#flexArea .container form #allChatLogs {
+#responsiveArea #flexArea .container form #allChatLogs {
   height: 74.7%;
 }
-#flexArea .container form #allChatLogs .chatLog {
+#responsiveArea #flexArea .container form #allChatLogs .chatLog {
   margin: 0.5rem 0.8rem;
 }
-#flexArea .container form #allChatLogs .chatLog #sendTime {
+#responsiveArea #flexArea .container form #allChatLogs .chatLog #sendTime {
   font-size: 0.6rem;
   margin-left: 0.4rem;
 }
-#flexArea .container form #messageFooter {
+#responsiveArea #flexArea .container form #messageFooter {
   padding: 0.75rem 0;
 }
-#flexArea .container form #messageFooter #msgForm {
+#responsiveArea #flexArea .container form #messageFooter #msgForm {
   margin-right: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: 25px;
 }
-#flexArea canvas {
-  margin-right: 1rem;
+#responsiveArea #flexArea canvas {
+  margin: 1rem auto;
   border: 7px solid #798079;
 }
-
-#selectArea {
-  height: 4rem;
+#responsiveArea #selectArea {
+  height: 7rem;
   border-radius: 30px;
 }
-#selectArea #selectAreaContents {
+#responsiveArea #selectArea #selectAreaContents {
+  height: fit-content;
   margin: 0 auto;
+  flex-direction: column-reverse;
 }
-#selectArea #selectAreaContents #button {
-  margin-left: 3rem;
+#responsiveArea #selectArea #selectAreaContents #button {
+  margin-left: 0;
 }
 
-/* mobileここから */
-/* mobileここまで */
+/* PC版デザインここから */
+@media screen and (min-width: 950px) {
+  #save {
+    font-size: 120%;
+    width: 80px;
+    height: 50px;
+  }
+
+  #clear {
+    font-size: 120%;
+    height: 50px;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    width: 85px;
+    height: 30px;
+    margin: 0 0.3rem;
+    border-radius: 0px;
+  }
+
+  #center {
+    position: absolute;
+  }
+
+  #createTheme {
+    margin: 0 auto 2rem;
+  }
+  #createTheme button {
+    padding: 1rem 1.5rem;
+    border-radius: 25px;
+  }
+  #createTheme p {
+    width: 9rem;
+    margin-right: 2rem;
+    padding: 0.9rem 0;
+    border: 3px outset;
+  }
+
+  #responsiveArea {
+    flex-direction: column;
+  }
+  #responsiveArea #flexArea {
+    flex-direction: row;
+    margin: 0 auto 2rem;
+  }
+  #responsiveArea #flexArea .container {
+    width: 350px;
+    height: 400px;
+  }
+  #responsiveArea #flexArea .container form #messageHeader {
+    padding: 0.8rem 1.5rem;
+  }
+  #responsiveArea #flexArea .container form #messageHeader #nameBox {
+    margin-left: 1rem;
+  }
+  #responsiveArea #flexArea .container form #allChatLogs {
+    height: 74.7%;
+  }
+  #responsiveArea #flexArea .container form #allChatLogs .chatLog {
+    margin: 0.5rem 0.8rem;
+  }
+  #responsiveArea #flexArea .container form #allChatLogs .chatLog #sendTime {
+    font-size: 0.6rem;
+    margin-left: 0.4rem;
+  }
+  #responsiveArea #flexArea .container form #messageFooter {
+    padding: 0.75rem 0;
+  }
+  #responsiveArea #flexArea .container form #messageFooter #msgForm {
+    margin-right: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+  }
+  #responsiveArea #flexArea canvas {
+    margin: auto;
+    margin-right: 1rem;
+    border: 7px solid #798079;
+  }
+  #responsiveArea #selectArea {
+    height: 4rem;
+    border-radius: 30px;
+    flex-direction: row;
+  }
+  #responsiveArea #selectArea #selectAreaContents {
+    height: auto;
+    margin: 0 auto;
+    flex-direction: row;
+  }
+  #responsiveArea #selectArea #selectAreaContents #button {
+    margin-left: 3rem;
+  }
+}

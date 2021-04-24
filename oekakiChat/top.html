@@ -5,7 +5,7 @@
     <meta property="og:title" content="黒板であそぼ">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://after-school-black-board.herokuapp.com/">
-    <meta property="og:image" content="https://after-school-black-board.herokuapp.com/static/images/OGP.png" />
+    <meta property="og:image" content="https://after-school-black-board.herokuapp.com/static/images/ogp-title.png" />
     <meta property="og:description" content="黒板に絵をみんなで同時に書くことができます！">
     <meta property="og:site_name" content="黒板であそぼ">
     <meta name="twitter:card" content="summary_large_image">
@@ -35,10 +35,16 @@
     </div>
     <div id="wrap">
         <div id="blackCover"></div>
+        <img id="image" src="./static/images/title-pc.png" alt="" title="">
         <a href="/index" class="...">
             <span>放課後の学校に行く</span>
             <span id="goIcon" class="material-icons"><span class="material-icons-outlined">arrow_forward_ios</span></span>
         </a>
     </div>
+    <script>
+        if (window.innerWidth < 950) {
+            document.getElementById("image").src = "./static/images/title-mobile.png";
+        }
+    </script>
 </body>
 </html>

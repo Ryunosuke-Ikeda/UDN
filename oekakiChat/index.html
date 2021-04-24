@@ -6,7 +6,7 @@
     <meta property="og:title" content="黒板であそぼ">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://after-school-black-board.herokuapp.com/">
-    <meta property="og:image" content="https://after-school-black-board.herokuapp.com/static/images/OGP.png" />
+    <meta property="og:image" content="https://after-school-black-board.herokuapp.com/static/images/ogp-title.png" />
     <meta property="og:description" content="黒板に絵をみんなで同時に書くことができます！">
     <meta property="og:site_name" content="黒板であそぼ">
     <meta name="twitter:card" content="summary_large_image">
@@ -26,7 +26,7 @@
 
 <body id="BGchange">
     <div id="rouka">
-        <!--
+
         <form class="form-inline">
             <div class="form-group">
                 <label class="roomLabel" for="rooms">部屋：</label>
@@ -41,7 +41,7 @@
             </div>
             <button type="submit" class="btn btn-primary" id="sendButton">入室</button>
         </form>
-        -->
+    </div>
     <!-- ここに各教室が動的に生成される -->
     <div id="blackCover"></div>
     <div id="center" style="display: none;">
@@ -49,8 +49,9 @@
             <p id="generateTheme">&nbsp;</p>
             <button>お題を生成する</button>
         </div>
+        <div id="responsiveArea">
         <div id="flexArea">
-            <canvas width="500" height="400"></canvas>
+            <canvas id="canvas" width="500" height="400"></canvas>
             <div class="container">
                 <form class="form-inline">
                         <div id="messageHeader">
@@ -84,6 +85,8 @@
                 </div>
             </div>
         </div>
+        </div>
+        </div>
     </div>
     <script src="./static/js/jquery-3.6.0.min.js"></script>
     <script src="./static/js/jquery-ui.js"></script>
@@ -95,6 +98,13 @@
         var socket = io.connect(); // C02. ソケットへの接続
         var isEnter = false;
         var name = '';
+
+        //画面幅によって黒板の横幅を動的に変更する
+        if(window.innerWidth<950){
+            document.getElementById("canvas").width = 300;
+            document.getElementById("canvas").height = 400;
+            document.getElementById("blackCover").style = "height: 35%; background-color: #00000000";
+        }
 
         //同時接続人数把握用 部屋の数をいじってください
         socket.on('memberList', function (data) {

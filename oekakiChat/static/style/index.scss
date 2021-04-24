@@ -1,83 +1,187 @@
+//test
+#sendButton{
+  margin-left: 4rem;
+}
+
 #save {
-    font-size: 120%;
-    width: 80px;
-    height: 50px;
+      font-size: 120%;
+      width: 80px;
+      height: 50px;
 }
 #clear {
-    font-size: 120%;
-    height: 50px;
+      font-size: 120%;
+      height: 50px;
 }
 ul {
-    margin: 0;
-    padding: 0;
+      margin: 0;
+      padding: 0;
 }
 li {
-    width: 85px;
-    height: 30px;
-    margin: 0 0.3rem;
+      width: 40px;
+      height: 40px;
+      margin: 0 0.5rem;
+      border-radius: 25px;
 }
-#createTheme{
-  margin: 0 auto 2rem;
-  button{
-    padding: 1rem 1.5rem;
-    border-radius: 25px;
-  }
-  p{
-    width: 9rem;
-    margin-right: 2rem;
-    padding: 0.9rem 0;
-    border: 3px outset;
-  }
+#center{
+  position: relative;
 }
-#flexArea{
-  margin: 0 auto 2rem;
-  .container{
-    width: 350px;
-    height: 400px;
-    form{
-      #messageHeader{
-        padding: 0.8rem 1.5rem;
-        #nameBox{
-          margin-left: 1rem;
+  #createTheme{
+    margin: 0 auto 2rem;
+    button{
+      padding: 1rem 1.5rem;
+      border-radius: 25px;
+    }
+    p{
+      width: 7rem;
+      margin-right: 1.5rem;
+      padding: 0.8rem 0;
+      border: 2px outset;
+    }
+  }
+#responsiveArea{
+  flex-direction: column-reverse;
+  #flexArea{
+    flex-direction: column;
+    margin: 0 auto 2rem;
+    .container{
+      width: 350px;
+      height: 400px;
+      form{
+        #messageHeader{
+          padding: 0.8rem 1.5rem;
+          #nameBox{
+            margin-left: 1rem;
+          }
         }
-      }
-      #allChatLogs{
-        height: 74.7%;
-        .chatLog{
-          margin: 0.5rem 0.8rem;
-          #sendTime{
-            font-size: 0.6rem;
-            margin-left: 0.4rem;
+        #allChatLogs{
+          height: 74.7%;
+          .chatLog{
+            margin: 0.5rem 0.8rem;
+            #sendTime{
+              font-size: 0.6rem;
+              margin-left: 0.4rem;
+            }
+          }
+        }
+        #messageFooter{
+          padding: 0.75rem 0;
+          #msgForm{
+            margin-right: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
           }
         }
       }
-      #messageFooter{
-        padding: 0.75rem 0;
-        #msgForm{
-          margin-right: 0.5rem;
-          padding: 0.5rem 1rem;
-          border-radius: 25px;
-        }
-      }
+    }
+    canvas{
+      margin: 1rem auto;
+      border: 7px solid $blackboard-flame;
     }
   }
-  canvas{
-    margin-right: 1rem;
-    border: 7px solid $blackboard-flame;
-  }
-}
-#selectArea{
-  height: 4rem;
-  border-radius: 30px;
-  #selectAreaContents{
-    margin: 0 auto;
-    #button{
-      margin-left: 3rem;
+  #selectArea{
+    height: 7rem;
+    border-radius: 30px;
+    #selectAreaContents{
+      height: fit-content;
+      margin: 0 auto;
+      flex-direction: column-reverse;
+      #button{
+        margin-left: 0;
+      }
     }
   }
 }
 
-/* mobileここから */
-@media screen and (max-width: 950px) {
+/* PC版デザインここから */
+@media screen and (min-width: 950px) {
+  #save {
+      font-size: 120%;
+      width: 80px;
+      height: 50px;
+  }
+  #clear {
+      font-size: 120%;
+      height: 50px;
+  }
+  ul {
+      margin: 0;
+      padding: 0;
+  }
+  li {
+      width: 85px;
+      height: 30px;
+      margin: 0 0.3rem;
+      border-radius: 0px;
+  }
+  #center{
+  position: absolute;
 }
-/* mobileここまで */
+  #createTheme{
+    margin: 0 auto 2rem;
+    button{
+      padding: 1rem 1.5rem;
+      border-radius: 25px;
+    }
+    p{
+      width: 9rem;
+      margin-right: 2rem;
+      padding: 0.9rem 0;
+      border: 3px outset;
+    }
+  }
+#responsiveArea{
+  flex-direction: column;
+  #flexArea{
+    flex-direction: row;
+    margin: 0 auto 2rem;
+    .container{
+      width: 350px;
+      height: 400px;
+      form{
+        #messageHeader{
+          padding: 0.8rem 1.5rem;
+          #nameBox{
+            margin-left: 1rem;
+          }
+        }
+        #allChatLogs{
+          height: 74.7%;
+          .chatLog{
+            margin: 0.5rem 0.8rem;
+            #sendTime{
+              font-size: 0.6rem;
+              margin-left: 0.4rem;
+            }
+          }
+        }
+        #messageFooter{
+          padding: 0.75rem 0;
+          #msgForm{
+            margin-right: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+          }
+        }
+      }
+    }
+    canvas{
+      margin: auto;
+      margin-right: 1rem;
+      border: 7px solid $blackboard-flame;
+    }
+  }
+  #selectArea{
+    height: 4rem;
+    border-radius: 30px;
+    flex-direction: row;
+    #selectAreaContents{
+      height: auto;
+      margin: 0 auto;
+      flex-direction: row;
+      #button{
+        margin-left: 3rem;
+      }
+    }
+  }
+}
+}
