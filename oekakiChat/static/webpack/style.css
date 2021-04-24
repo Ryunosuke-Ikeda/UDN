@@ -571,6 +571,14 @@ a #goIcon {
   transform: translate(-50%, -50%);
   z-index: 10;
 }
+#rouka .grade {
+  display: flex;
+}
+#rouka .grade .classroom {
+  background-color: #ffffff;
+  margin: 2rem 1rem;
+  padding: 1rem;
+}
 
 #createTheme {
   display: flex;

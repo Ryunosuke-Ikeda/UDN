@@ -5,4 +5,12 @@
   margin-right: -50%;
   transform: translate(-50%, -50%);
   z-index: 10;
+  .grade{
+    display: flex;
+    .classroom{
+      background-color: #ffffff;
+      margin: 2rem 1rem;
+      padding: 1rem;
+    }
+  }
 }

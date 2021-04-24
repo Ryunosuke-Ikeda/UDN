@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
   \*****************************************/
 /***/ (function() {
 
-eval("document.getElementById('addRoom').onclick  = function addRoom() {\n  var parent = document.getElementById(\"rooms\");\n  var option = document.createElement(\"option\");\n\n  var selectCount = $('#rooms').children('option').length;\n\n  var addOption = selectCount + 1;\n\n  option.text = \"部屋\" + addOption;\n  option.value = \"room\" + addOption;\n\n  parent.appendChild(option);\n\n}\n\n\n//# sourceURL=webpack://docker_web_app/./oekakiChat/static/js/addRoom.js?");
+eval("/*\ndocument.getElementById('addRoom').onclick = function addRoom() {\n  var parent = document.getElementById(\"rooms\");\n  var option = document.createElement(\"option\");\n\n  var selectCount = $('#rooms').children('option').length;\n\n  var addOption = selectCount + 1;\n\n  option.text = \"部屋\" + addOption;\n  option.value = \"room\" + addOption;\n\n  parent.appendChild(option);\n\n}\n*/\n\n\n//# sourceURL=webpack://docker_web_app/./oekakiChat/static/js/addRoom.js?");
 
 /***/ }),
 

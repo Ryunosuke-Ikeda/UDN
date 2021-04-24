@@ -1,4 +1,5 @@
-document.getElementById('addRoom').onclick  = function addRoom() {
+/*
+document.getElementById('addRoom').onclick = function addRoom() {
   var parent = document.getElementById("rooms");
   var option = document.createElement("option");
 
@@ -12,3 +13,4 @@ document.getElementById('addRoom').onclick  = function addRoom() {
   parent.appendChild(option);
 
 }
+*/
