@@ -57,7 +57,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _rou
   \***************************************/
 /***/ (function() {
 
-eval("document.getElementById('sendButton').onclick = function rouka() {\n  document.getElementById(\"rouka\").style = \"display: none;\";\n  document.getElementById(\"blackCover\").style = \"\";\n  document.getElementById(\"center\").style = \"\";\n}\n\n\n//# sourceURL=webpack://docker_web_app/./oekakiChat/static/js/rouka.js?");
+eval("document.getElementById('sendButton').onclick = function rouka() {\n  document.getElementById(\"rouka\").style = \"display: none;\";\n  document.getElementById(\"center\").style = \"\";\n  document.getElementById(\"BGchange\").style = \"background-image: url('static/images/BG-index.jpeg');\";\n}\n\n\n//# sourceURL=webpack://docker_web_app/./oekakiChat/static/js/rouka.js?");
 
 /***/ })
 

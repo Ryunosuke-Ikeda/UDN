@@ -16,7 +16,7 @@
     <title>黒板であそぼ</title>
     <style>
         body {
-            background-image: url("static/images/BG-index.jpeg");
+            background-image: url("static/images/BG-rouka.jpeg");
             background-size: cover;
             background-attachment: fixed;
             background-position: center center;
@@ -24,7 +24,7 @@
     </style>
 </head>
 
-<body>
+<body id="BGchange">
     <div id="rouka">
         <form class="form-inline">
             <div class="form-group">
@@ -41,7 +41,7 @@
             <button type="submit" class="btn btn-primary" id="sendButton">入室</button>
         </form>
     </div>
-    <div id="blackCover" style="display: none;"></div>
+    <div id="blackCover"></div>
     <div id="center" style="display: none;">
         <div id="createTheme">
             <p id="generateTheme">&nbsp;</p>
@@ -154,7 +154,7 @@
                     socket.on('clear user', function () {
                         context.clearRect(0, 0, $('canvas').width(), $('canvas').height());
                     });
-                    
+
                     /*
 
                     $('canvas').mousedown(function (e) {
@@ -212,7 +212,7 @@
                             if (drawFlag) {
                             draw(e);
                         }
-         
+
                         }
                     });
 
