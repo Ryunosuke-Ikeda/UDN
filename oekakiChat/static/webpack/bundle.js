@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
   \*****************************************/
 /***/ (function() {
 
-eval("window.onload = function () {\n  for (var i = 3; i > 0; i--){\n    document.getElementById(\"rouka\").insertAdjacentHTML('beforeend', '<div id=\"grade' + i + '\" class=\"grade\">');\n    for (var j = 1; j < 6; j++){\n      document.getElementById(\"grade\"+ i).insertAdjacentHTML('beforeend', '<div id=\"' + i+ '-'+ j + '\" class=\"classroom\"><span>' + i + '-' + j + '</span><span><span class=\"material-icons\">face</span></span></div>');\n    }\n    document.getElementById(\"rouka\").insertAdjacentHTML('beforeend', '</div>');\n  }\n}\n\n\n//# sourceURL=webpack://docker_web_app/./oekakiChat/static/js/addRoom.js?");
+eval("window.onload = function () {\n  roomNumber = 1;\n  for (var i = 3; i > 0; i--){\n    document.getElementById(\"rouka\").insertAdjacentHTML('beforeend', '<div id=\"grade' + i + '\" class=\"grade\">');\n    for (var j = 1; j < 6; j++){\n      document.getElementById(\"grade\"+ i).insertAdjacentHTML('beforeend', '<div id=\"' + i+ '-'+ j + '\" class=\"classroom\"><span>' + i + '-' + j + '</span><span><span class=\"material-icons\">face</span><span id=room'+roomNumber+'>0</span></span></div>');\n      roomNumber += 1;\n    }\n    document.getElementById(\"rouka\").insertAdjacentHTML('beforeend', '</div>');\n  }\n}\n\n\n//# sourceURL=webpack://docker_web_app/./oekakiChat/static/js/addRoom.js?");
 
 /***/ }),
 
