@@ -629,14 +629,29 @@ a #goIcon {
 }
 #flexArea .container form #messageHeader {
   background-color: #09A8CE;
+  padding: 0.5rem 1.5rem;
+}
+#flexArea .container form #messageHeader #nameBox {
+  margin-left: 1rem;
 }
 #flexArea .container form #allChatLogs {
-  height: 85%;
+  height: 77.5%;
   overflow-y: scroll;
 }
 #flexArea .container form #messageFooter {
   position: absolute;
   bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0.7rem 0;
+  background-color: #09A8CE;
+}
+#flexArea .container form #messageFooter #msgForm {
+  text-align: start;
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #ffffffff;
+  border-radius: 25px;
 }
 #flexArea canvas {
   display: block;
