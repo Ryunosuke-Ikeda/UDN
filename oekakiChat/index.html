@@ -151,7 +151,8 @@
                     socket.on('clear user', function () {
                         context.clearRect(0, 0, $('canvas').width(), $('canvas').height());
                     });
-
+                    
+                    /*
 
                     $('canvas').mousedown(function (e) {
                         drawFlag = true;
@@ -174,7 +175,10 @@
                         drawFlag = false;
                     });
 
+                    */
+
                     //sumaho
+                    /*
                     $('canvas').touchstart(function (e) {
                         drawFlag = true;
                         fromX = e.pageX - $(this).offset().left - offset;
@@ -187,8 +191,33 @@
                             draw(e);
                         }
                     });
+                    */
+
+
+                   /* タッチできる環境なら true、そうでないなら false 。*/
+                    var isTouch = ('ontouchstart' in window);
+
+                    $('canvas').bind({
+                        'touchstart mousedown': function(e) {
+                            drawFlag = true;
+                            fromX = e.pageX - $(this).offset().left - offset;
+                            fromY = e.pageY - $(this).offset().top - offset;
+                            return false;  // for chrome
+                        },
+
+                        'touchmove mousemove': function(e) {
+                            if (drawFlag) {
+                            draw(e);
+                        }
+         
+                        }
+                    });
 
                     $('canvas').on('touchend', function () {
+                        drawFlag = false;
+                    });
+
+                    $('canvas').on('mouseup', function () {
                         drawFlag = false;
                     });
 
