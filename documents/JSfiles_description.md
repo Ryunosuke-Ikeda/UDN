@@ -19,3 +19,11 @@
 - addRoom.js
   - addRoom()
     - index.htmlの `<button type="button" id="addRoom"><span class="material-icons">add</span></button>` をonclickしたときに、`<select class="form-control" id="rooms"></select>` 内にoption要素(部屋の数)を追加する
+
+- loading.js
+  - top.htmlでloadingを2.5秒間のみ表示させている
+
+- createTheme.js
+  - createTheme()
+    - 乱数を生成している
+    - 乱数と一致するtheme.jsonの配列番号に格納されているお題を表示させている

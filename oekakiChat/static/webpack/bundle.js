@@ -30,6 +30,16 @@ eval("document.getElementById('addRoom').onclick  = function addRoom() {\n  var 
 
 /***/ }),
 
+/***/ "./oekakiChat/static/js/createTheme.js":
+/*!*********************************************!*\
+  !*** ./oekakiChat/static/js/createTheme.js ***!
+  \*********************************************/
+/***/ (function() {
+
+eval("document.getElementById('createTheme').onclick = function createTheme() {\n\n  var random = Math.floor(Math.random() * 11);\n\n  $.getJSON(\"../static/js/theme.json\", function (data) {\n    for (var i = 0; i < Object.keys(data.themeData).length; i++) {\n      if (data.themeData[random] == data.themeData[i]) {\n        document.getElementById(\"generateTheme\").textContent = data.themeData[random].shiritoriTheme;\n      }\n    }\n  })\n\n}\n\n\n//# sourceURL=webpack://docker_web_app/./oekakiChat/static/js/createTheme.js?");
+
+/***/ }),
+
 /***/ "./oekakiChat/static/js/index.js":
 /*!***************************************!*\
   !*** ./oekakiChat/static/js/index.js ***!
@@ -37,7 +47,7 @@ eval("document.getElementById('addRoom').onclick  = function addRoom() {\n  var 
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _addRoom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addRoom.js */ \"./oekakiChat/static/js/addRoom.js\");\n/* harmony import */ var _addRoom_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_addRoom_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _style_style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../style/style.scss */ \"./oekakiChat/static/style/style.scss\");\n\n\n\n\n//# sourceURL=webpack://docker_web_app/./oekakiChat/static/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _addRoom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addRoom.js */ \"./oekakiChat/static/js/addRoom.js\");\n/* harmony import */ var _addRoom_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_addRoom_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _createTheme_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createTheme.js */ \"./oekakiChat/static/js/createTheme.js\");\n/* harmony import */ var _createTheme_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_createTheme_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _style_style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../style/style.scss */ \"./oekakiChat/static/style/style.scss\");\n\n\n\n\n\n//# sourceURL=webpack://docker_web_app/./oekakiChat/static/js/index.js?");
 
 /***/ })
 

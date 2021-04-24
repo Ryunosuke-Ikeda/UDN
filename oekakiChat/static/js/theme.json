@@ -1,0 +1,48 @@
+{
+  "themeData": [
+    {
+      "shiritoriTheme": "犬",
+      "drawingTheme": "友達"
+    },
+    {
+      "shiritoriTheme": "卵",
+      "drawingTheme": "夏"
+    },
+    {
+      "shiritoriTheme": "いす",
+      "drawingTheme": "泣く"
+    },
+    {
+      "shiritoriTheme": "車",
+      "drawingTheme": "音楽"
+    },
+    {
+      "shiritoriTheme": "海",
+      "drawingTheme": "帰宅"
+    },
+    {
+      "shiritoriTheme": "山",
+      "drawingTheme": "冬"
+    },
+    {
+      "shiritoriTheme": "めがね",
+      "drawingTheme": "頭"
+    },
+    {
+      "shiritoriTheme": "カメラ",
+      "drawingTheme": "あさって"
+    },
+    {
+      "shiritoriTheme": "はさみ",
+      "drawingTheme": "日記"
+    },
+    {
+      "shiritoriTheme": "家",
+      "drawingTheme": "散歩"
+    },
+    {
+      "shiritoriTheme": "猫",
+      "drawingTheme": "買い物"
+    }
+  ]
+}
