@@ -83,6 +83,10 @@
                     <button id="save"><span class="material-icons">file_download
                         </span></button>
                     <button id="clear"><span class="material-icons">delete</span></button>
+                    <button id="eraser">消しゴム</button>
+                    <button id="large">大</button>
+                    <button id="midium">中</button>
+                    <button id="smalle">小</button>
                     <button type="submit" class="btn btn-primary" id="sendButton">退室</button>
                 </div>
             </div>
@@ -150,6 +154,10 @@
                     var fromX;
                     var fromY;
                     var drawFlag = false;
+                    var eraserFlag=false;
+                    var smalleFlag=false;
+                    var midiumFlag=true;
+                    var largeFlag=false
                     var context = $("canvas").get(0).getContext('2d');
 
                     //var socket = io.connect('http://localhost:3333');
@@ -242,6 +250,9 @@
                 
                     $('li').click(function () {
                         context.strokeStyle = $(this).css('background-color');
+                        //描画モード
+                        context.globalCompositeOperation = 'source-over';
+                        eraserFlag=false
                     });
 
                     $('#clear').click(function (e) {
@@ -250,10 +261,53 @@
                         context.clearRect(0, 0, $('canvas').width(), $('canvas').height());
                     });
 
+                    $('#eraser').click(function(e){
+                        console.log("kesigomu")
+                        //消しゴムモード
+                        context.globalCompositeOperation = 'destination-out';
+                        eraserFlag=true
+                    });
+
+                    $('#large').click(function(e){
+                        context.globalCompositeOperation = 'source-over';
+                        largeFlag=true
+                        midiumFlag=false
+                        smalleFlag=false
+                        eraserFlag=false
+
+                    });
+                    $('#midium').click(function(e){
+                        context.globalCompositeOperation = 'source-over';
+                        largeFlag=false
+                        midiumFlag=true
+                        smalleFlag=false
+                        eraserFlag=false
+                    });
+                    $('#smalle').click(function(e){
+                        context.globalCompositeOperation = 'source-over';
+                        largeFlag=false
+                        midiumFlag=false
+                        smalleFlag=true
+                        eraserFlag=false
+                    });
+
+
                     function draw(e) {
                         var toX = e.pageX - $('canvas').offset().left - offset;
                         var toY = e.pageY - $('canvas').offset().top - offset;
-                        context.lineWidth = 2;
+                        if(eraserFlag){
+                            context.lineWidth = 20;
+                        }
+                        else if(largeFlag){
+                            context.lineWidth = 10;
+
+                        }
+                        else if(midiumFlag){
+                            context.lineWidth = 5;
+                        }
+                        else {
+                            context.lineWidth = 2;
+                        }
                         context.beginPath();
                         context.moveTo(fromX, fromY);
                         context.lineTo(toX, toY);
@@ -272,7 +326,19 @@
                     function draw_sumaho(e) {
                         var toX = e.touches[0].clientX - $('canvas').offset().left - offset;
                         var toY = e.touches[0].clientY - $('canvas').offset().top - offset;
-                        context.lineWidth = 2;
+                        if(eraserFlag){
+                            context.lineWidth = 20;
+                        }
+                        else if(largeFlag){
+                            context.lineWidth = 10;
+
+                        }
+                        else if(midiumFlag){
+                            context.lineWidth = 5;
+                        }
+                        else {
+                            context.lineWidth = 2;
+                        }
                         context.beginPath();
                         context.moveTo(fromX, fromY);
                         context.lineTo(toX, toY);
