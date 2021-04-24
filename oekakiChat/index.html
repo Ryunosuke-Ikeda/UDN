@@ -171,6 +171,30 @@
                         drawFlag = false;
                     });
 
+                    //sumaho
+                    $('canvas').touchstart(function (e) {
+                        drawFlag = true;
+                        fromX = e.pageX - $(this).offset().left - offset;
+                        fromY = e.pageY - $(this).offset().top - offset;
+                        return false;  // for chrome
+                    });
+
+                    $('canvas').touchmove(function (e) {
+                        if (drawFlag) {
+                            draw(e);
+                        }
+                    });
+
+                    $('canvas').on('touchend', function () {
+                        drawFlag = false;
+                    });
+
+                    $('canvas').on('mouseleave', function () {
+                        drawFlag = false;
+                    });
+
+                    //
+
                     $('li').click(function () {
                         context.strokeStyle = $(this).css('background-color');
                     });
