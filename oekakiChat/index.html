@@ -162,7 +162,21 @@
                             draw(e);
                         }
                     });
+                    //sumaho
+                    $('canvas').mousedown(function (e) {
+                        drawFlag = true;
+                        fromX = e.pageX - $(this).offset().left - offset;
+                        fromY = e.pageY - $(this).offset().top - offset;
+                        return false;  // for chrome
+                    });
 
+                    $('canvas').mousemove(function (e) {
+                        if (drawFlag) {
+                            draw(e);
+                        }
+                    });
+
+                    //
                     $('canvas').on('mouseup', function () {
                         drawFlag = false;
                     });
