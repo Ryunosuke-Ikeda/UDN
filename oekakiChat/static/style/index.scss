@@ -38,9 +38,44 @@
   width: fit-content;
   margin: 0 auto 2rem;
   .container{
+    width: 350px;
+    height: 400px;
     display: block;
-    width: fit-content;
+    margin: auto;
     background-color: $BG-color;
+        position: relative;
+    form{
+      height: 100%;
+      #messageHeader{
+        background-color: #09A8CE;
+        padding: 0.5rem 1.5rem;
+        #nameBox{
+          margin-left: 1rem;
+        }
+      }
+      #allChatLogs{
+        height: 77.5%;
+        overflow-y: scroll;
+        .chatLog{
+          margin: 0.5rem 0.8rem;
+        }
+      }
+      #messageFooter{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        padding: 0.7rem 0;
+        background-color: #09A8CE;
+        #msgForm{
+          text-align: start;
+          margin-right: 0.5rem;
+          padding: 0.5rem 1rem;
+          background-color: #ffffffff;
+          border-radius: 25px;
+        }
+      }
+    }
   }
   canvas{
     display: block;
@@ -48,6 +83,19 @@
     margin-right: 1rem;
   }
 }
+
+/* スクロールバーここから */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #e2e2e2;
+}
+::-webkit-scrollbar-thumb {
+  background: #a3a3a3;
+}
+/* スクロールバーここまで */
+
 #selectArea{
   background-color: $BG-color;
   height: 3.5rem;

@@ -51,15 +51,18 @@
             <canvas width="500" height="400"></canvas>
             <div class="container">
                 <form class="form-inline">
-                    <div class="form-group">
-                        <label class="roomLabel" id="selectRooms">部屋</label>
-                        <label class="roomLabel" id="nameBox">名前</label>
-                        <label class="nameLabel" for="msgForm">メッセージ</label>
-                        <input type="text" class="form-control" id="msgForm">
-                    </div>
-                    <button type="submit" class="btn btn-primary" id="sendButton">送信</button>
+                        <div id="messageHeader">
+                            <label class="roomLabel" id="selectRooms">部屋</label>
+                            <label class="roomLabel" id="nameBox">名前</label>
+                        </div>
+                        <div id="allChatLogs">
+                            <div id="chatLogs"></div>
+                        </div>
+                        <div id="messageFooter">
+                            <input type="text" class="form-control" id="msgForm" placeholder="メッセージを入力">
+                            <button type="submit" class="btn btn-primary" id="sendButton"><span class="material-icons">send</span></button>
+                        </div>
                 </form>
-                <div id="chatLogs"></div>
             </div>
         </div>
         <div id="selectArea">
@@ -92,7 +95,7 @@
         // C04. server_to_clientイベント・データを受信する
         socket.on("server_to_client", function (data) { appendMsg(data.value) });
         function appendMsg(text) {
-            $("#chatLogs").append("<div>" + text + "</div>");
+            $("#chatLogs").append("<div class='chatLog'>" + text + "</div>");
         }
 
         $("form").submit(function (e) {

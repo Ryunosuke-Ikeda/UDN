@@ -617,9 +617,44 @@ a #goIcon {
   margin: 0 auto 2rem;
 }
 #flexArea .container {
+  width: 350px;
+  height: 400px;
   display: block;
-  width: fit-content;
+  margin: auto;
   background-color: #ffffff;
+  position: relative;
+}
+#flexArea .container form {
+  height: 100%;
+}
+#flexArea .container form #messageHeader {
+  background-color: #09A8CE;
+  padding: 0.5rem 1.5rem;
+}
+#flexArea .container form #messageHeader #nameBox {
+  margin-left: 1rem;
+}
+#flexArea .container form #allChatLogs {
+  height: 77.5%;
+  overflow-y: scroll;
+}
+#flexArea .container form #allChatLogs .chatLog {
+  margin: 0.5rem 0.8rem;
+}
+#flexArea .container form #messageFooter {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0.7rem 0;
+  background-color: #09A8CE;
+}
+#flexArea .container form #messageFooter #msgForm {
+  text-align: start;
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #ffffffff;
+  border-radius: 25px;
 }
 #flexArea canvas {
   display: block;
@@ -627,6 +662,20 @@ a #goIcon {
   margin-right: 1rem;
 }
 
+/* スクロールバーここから */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e2e2e2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a3a3a3;
+}
+
+/* スクロールバーここまで */
 #selectArea {
   background-color: #ffffff;
   height: 3.5rem;
