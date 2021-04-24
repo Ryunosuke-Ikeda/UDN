@@ -31,6 +31,18 @@
     {
       "shiritoriTheme": "カメラ",
       "drawingTheme": "あさって"
+    },
+    {
+      "shiritoriTheme": "はさみ",
+      "drawingTheme": "日記"
+    },
+    {
+      "shiritoriTheme": "家",
+      "drawingTheme": "散歩"
+    },
+    {
+      "shiritoriTheme": "猫",
+      "drawingTheme": "買い物"
     }
   ]
 }
