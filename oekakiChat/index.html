@@ -41,7 +41,7 @@
             </div>
             <button type="submit" class="btn btn-primary" id="sendButton">入室</button>
         </form>
-</div>
+    </div>
     <!-- ここに各教室が動的に生成される -->
     <div id="blackCover"></div>
     <div id="center" style="display: none;">
@@ -49,6 +49,7 @@
             <p id="generateTheme">&nbsp;</p>
             <button>お題を生成する</button>
         </div>
+        <div id="responsiveArea">
         <div id="flexArea">
             <canvas width="500" height="400"></canvas>
             <div class="container">
@@ -84,6 +85,7 @@
                 </div>
             </div>
         </div>
+        </div>
     </div>
     <script src="./static/js/jquery-3.6.0.min.js"></script>
     <script src="./static/js/jquery-ui.js"></script>
@@ -95,7 +97,6 @@
         var socket = io.connect(); // C02. ソケットへの接続
         var isEnter = false;
         var name = '';
-
         //同時接続人数把握用 部屋の数をいじってください
         socket.on('memberList', function (data) {
             roomSize = 3; //部屋の数

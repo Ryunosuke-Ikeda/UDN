@@ -107,44 +107,47 @@ li {
     margin-right: -50%;
     transform: translate(-50%, -50%);
 }
-#flexArea{
+#responsiveArea{
     display: flex;
-    width: fit-content;
-    .container{
-    display: block;
-    margin: auto;
-    background-color: $BG-color;
-    position: relative;
-    form{
-        height: 100%;
-        #messageHeader{
-        background-color: $messageTheme;
-        }
-        #allChatLogs{
-        overflow-y: scroll;
-        .chatLog{
-            #sendTime{
-            color: $sendTime;
+    #flexArea{
+        display: flex;
+        width: fit-content;
+        .container{
+        display: block;
+        margin: auto;
+        background-color: $BG-color;
+        position: relative;
+        form{
+            height: 100%;
+            #messageHeader{
+            background-color: $messageTheme;
+            }
+            #allChatLogs{
+            overflow-y: scroll;
+            .chatLog{
+                #sendTime{
+                color: $sendTime;
+                }
+            }
+            }
+            #messageFooter{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: $messageTheme;
+            #msgForm{
+                text-align: start;
+                background-color: $BG-color;
+            }
             }
         }
         }
-        #messageFooter{
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        text-align: center;
-        background-color: $messageTheme;
-        #msgForm{
-            text-align: start;
-            background-color: $BG-color;
+        canvas{
+        display: block;
+        width: fit-content;
+        background-color: $blackboard;
         }
-        }
-    }
-    }
-    canvas{
-    display: block;
-    width: fit-content;
-    background-color: $blackboard;
     }
 }
 /* スクロールバーここから */
