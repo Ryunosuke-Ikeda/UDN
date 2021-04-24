@@ -1,16 +1,12 @@
 /* 変数宣言 */
 $blackboard: #0B4500;
-$blackboard-flame: #9b9b9b;
+$blackboard-flame: #798079;
 $BG-color: #ffffff;
 $messageTheme: #b9f1ff;
 
 html,body{
     width: 100%;
     height: 100%;
-}
-canvas {
-    border: 6px solid $blackboard-flame;
-    background-color: $blackboard;
 }
 button{
     background: none;
@@ -28,7 +24,6 @@ button{
 }
 #clear {
     font-size: 120%;
-    width: 80px;
     height: 50px;
 }
 ul {

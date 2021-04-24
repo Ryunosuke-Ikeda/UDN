@@ -476,11 +476,6 @@ html, body {
   height: 100%;
 }
 
-canvas {
-  border: 6px solid #9b9b9b;
-  background-color: #0B4500;
-}
-
 button {
   background: none;
   border: none;
@@ -499,7 +494,6 @@ button {
 
 #clear {
   font-size: 120%;
-  width: 80px;
   height: 50px;
 }
 
@@ -662,6 +656,8 @@ a #goIcon {
   display: block;
   width: fit-content;
   margin-right: 1rem;
+  border: 7px solid #798079;
+  background-color: #0B4500;
 }
 
 /* スクロールバーここから */
