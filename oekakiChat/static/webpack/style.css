@@ -477,12 +477,8 @@ html, body {
 }
 
 canvas {
-  border: 6px solid #9B9B9B;
+  border: 6px solid #9b9b9b;
   background-color: #0B4500;
-}
-
-#selectArea {
-  display: flex;
 }
 
 button {
@@ -519,9 +515,9 @@ li {
   cursor: pointer;
   cursor: hand;
   display: inline-block;
-  border: 1px solid #707070;
   width: 85px;
   height: 30px;
+  margin: 0 0.3rem;
 }
 
 .material-icons {
@@ -594,6 +590,7 @@ a #goIcon {
   text-align: center;
   margin-right: 2rem;
   padding: 0.9rem 0;
+  border: 3px outset;
 }
 
 #blackCover {
@@ -678,7 +675,9 @@ a #goIcon {
 /* スクロールバーここまで */
 #selectArea {
   background-color: #ffffff;
-  height: 3.5rem;
+  height: 4rem;
+  display: flex;
+  border-radius: 30px;
 }
 #selectArea #selectAreaContents {
   width: fit-content;

@@ -18,6 +18,7 @@
     text-align: center;
     margin-right: 2rem;
     padding: 0.9rem 0;
+    border: 3px outset;
   }
 }
 #blackCover{
@@ -98,7 +99,9 @@
 
 #selectArea{
   background-color: $BG-color;
-  height: 3.5rem;
+  height: 4rem;
+  display: flex;
+  border-radius: 30px;
   #selectAreaContents{
     width: fit-content;
     display: flex;

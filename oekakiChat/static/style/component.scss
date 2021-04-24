@@ -1,6 +1,6 @@
 /* 変数宣言 */
 $blackboard: #0B4500;
-$blackboard-flame: #9B9B9B;
+$blackboard-flame: #9b9b9b;
 $BG-color: #ffffff;
 
 html,body{
@@ -8,13 +8,8 @@ html,body{
     height: 100%;
 }
 canvas {
-    //top: 20px;
-    //left: 20px;
     border: 6px solid $blackboard-flame;
     background-color: $blackboard;
-}
-#selectArea{
-    display: flex;
 }
 button{
     background: none;
@@ -46,9 +41,9 @@ li {
     cursor:pointer;
     cursor:hand;
     display:inline-block;
-    border: 1px solid #707070;
     width: 85px;
     height: 30px;
+    margin: 0 0.3rem;
 }
 .material-icons{
     color: #3d3d3d;
