@@ -33,8 +33,6 @@ app.get('/index', function (req, res) {
 //var io = socketio.listen(server);
 let memberCount = [];
 
-const txtLocal = document.querySelector("memberCount");
-
 // S04. connectionイベントを受信する
 io.sockets.on('connection', function(socket) {
     var room = '';
