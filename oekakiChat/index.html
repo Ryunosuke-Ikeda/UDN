@@ -30,9 +30,12 @@
             <div class="form-group">
                 <label class="roomLabel" for="rooms">部屋：</label>
                 <select class="form-control" id="rooms">
-                    <option value="room1">部屋1 <span id="room1">&nbsp;</span></option>
-                    <option value="room2">部屋2 <span id="room2">&nbsp;</span></option>
-                    <option value="room3">部屋3 <span id="room3">&nbsp;</span></option>
+                    <!--<option value="room1">部屋1<span id="23">これ</span></option>
+                    <option value="room2">部屋2<span id="2">これ</span></option>
+                    <option value="room3">部屋3<span id="3">これ</span></option>-->
+                    <option value="room1" id="room1">部屋1</option>
+                    <option value="room2" id="room2">部屋2</option>
+                    <option value="room3" id="room3">部屋3</option>
                 </select>
                 <p>接続数:<span id="count"></span></p>
                 <!--テスト用-->
@@ -101,10 +104,11 @@
         });
         socket.on('roomList', function (data) {
             console.log(data);
-            
-            document.getElementById().textContent = searchMember(memberCount,data);
+            targetRoom = data
+            roomName = data.replace('room','部屋')
+            document.getElementById(targetRoom).textContent = roomName + " " + searchMember(memberCount,data) + "人が接続中";
         });
-
+ 
         // C04. server_to_clientイベント・データを受信する
         socket.on("server_to_client", function (data) {
             appendMsg(data.value)
@@ -226,7 +230,7 @@
         });
 
         function enterLabel() {
-            $("#rooms").prop("disabled", true);
+
             $("#sendButton").text("送信");
             isEnter = true;
         }

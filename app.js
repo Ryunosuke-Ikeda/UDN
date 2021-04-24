@@ -42,14 +42,15 @@ io.sockets.on('connection', function(socket) {
     var name = '';
     console.log('コネクション数',socket.client.conn.server.clientsCount);
     io.sockets.emit('count', socket.client.conn.server.clientsCount);
+    memberCount.push(room);
+    console.log(memberCount)
+    io.sockets.emit('memberList',memberCount);
+    io.sockets.emit('roomList',room);
 
     // roomへの入室は、「socket.join(room名)」
     socket.on('client_to_server_join', function(data) {
         room = data.value;
         socket.join(room);
-        memberCount.push(room);
-        io.sockets.emit('memberList',memberCount);
-        io.sockets.emit('roomList',room);
     });
     // S05. client_to_serverイベント・データを受信する
     socket.on('client_to_server', function(data) {
