@@ -56,6 +56,9 @@
       #allChatLogs{
         height: 77.5%;
         overflow-y: scroll;
+        .chatLog{
+          margin: 0.5rem 0.8rem;
+        }
       }
       #messageFooter{
         position: absolute;

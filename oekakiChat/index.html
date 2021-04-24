@@ -95,7 +95,7 @@
         // C04. server_to_clientイベント・データを受信する
         socket.on("server_to_client", function (data) { appendMsg(data.value) });
         function appendMsg(text) {
-            $("#chatLogs").append("<div>" + text + "</div>");
+            $("#chatLogs").append("<div class='chatLog'>" + text + "</div>");
         }
 
         $("form").submit(function (e) {

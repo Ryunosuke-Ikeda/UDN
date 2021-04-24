@@ -638,6 +638,9 @@ a #goIcon {
   height: 77.5%;
   overflow-y: scroll;
 }
+#flexArea .container form #allChatLogs .chatLog {
+  margin: 0.5rem 0.8rem;
+}
 #flexArea .container form #messageFooter {
   position: absolute;
   bottom: 0;
