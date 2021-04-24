@@ -1,0 +1,38 @@
+/*Global Variables*/
+/*Colors*/
+@primaryColor: #F56151;
+@bgColor: #bababa;
+@firstColor: #0fd6ff;
+@secondColor:#58bd55;
+@thirdColor: #eb68a1;
+@fourthColor: #f3d53f;
+@transparent: transparent;
+
+/*Box Size*/
+@boxSize: 48px;
+
+/*Speed*/
+@speed2x: 2s;
+@speed3x: 1s;
+@speed4x: .5s;
+
+/*Global Mixins*/
+.bounding-box(@width, @height){
+	width: @width;
+	height: @height;
+	display: inline-block;
+	box-sizing: border-box;
+}
+
+.border(@borderWidth, @top, @right, @bottom, @left){
+	border-top: solid @borderWidth @top;
+	border-right: solid @borderWidth @right;
+	border-bottom: solid @borderWidth @bottom;
+	border-left: solid @borderWidth @left;
+}
+
+/*Global Spinner*/
+.cp-spinner{
+	.bounding-box(@boxSize, @boxSize);
+	position: relative;
+}
