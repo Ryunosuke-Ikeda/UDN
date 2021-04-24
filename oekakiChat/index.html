@@ -94,7 +94,7 @@
         // C04. server_to_clientイベント・データを受信する
         socket.on("server_to_client", function (data) { appendMsg(data.value) });
         function appendMsg(text) {
-            $("#chatLogs").prepend("<div class='chatLog'>" + text + "</div>");
+            $("#chatLogs").prepend("<div class='chatLog'>" + text +"</div>");
         }
 
         $("form").submit(function (e) {
@@ -105,7 +105,11 @@
             if (isEnter) {
                 console.log("送ってる");
 
-                message = "[" + name + "]: " + message;
+                var sendTime = new Date();
+                var Hour = sendTime.getHours();
+                var Min = sendTime.getMinutes();
+
+                message = "[" + name + "]: " + message + "<span>" + Hour + ":" + Min + "</span>";
                 // C03. client_to_serverイベント・データを送信する
                 socket.emit("client_to_server", { value: message });
             } else {

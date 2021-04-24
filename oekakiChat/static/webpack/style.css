@@ -638,6 +638,11 @@ a #goIcon {
 #flexArea .container form #allChatLogs .chatLog {
   margin: 0.5rem 0.8rem;
 }
+#flexArea .container form #allChatLogs .chatLog span {
+  font-size: 0.7rem;
+  color: #5c5c5c;
+  margin-left: 0.3rem;
+}
 #flexArea .container form #messageFooter {
   position: absolute;
   bottom: 0;

@@ -59,6 +59,11 @@
         overflow-y: scroll;
         .chatLog{
           margin: 0.5rem 0.8rem;
+          span{
+            font-size: 0.7rem;
+            color: #5c5c5c;
+            margin-left: 0.3rem;
+          }
         }
       }
       #messageFooter{
