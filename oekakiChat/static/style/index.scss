@@ -1,54 +1,41 @@
+#save {
+    font-size: 120%;
+    width: 80px;
+    height: 50px;
+}
+#clear {
+    font-size: 120%;
+    height: 50px;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+li {
+    width: 85px;
+    height: 30px;
+    margin: 0 0.3rem;
+}
 #createTheme{
-  display: flex;
-  width: fit-content;
   margin: 0 auto 2rem;
-  align-items: center;
   button{
-    display: block;
-    width: fit-content;
     padding: 1rem 1.5rem;
-    background-color: #ffffff;
     border-radius: 25px;
   }
   p{
-    display: block;
     width: 9rem;
-    height: fit-content;
-    background-color: #ffffff;
-    text-align: center;
     margin-right: 2rem;
     padding: 0.9rem 0;
     border: 3px outset;
   }
 }
-#blackCover{
-  width: 100%;
-  height: 100%;
-  background-color: #000000;
-  opacity: 0.15;
-}
-#center{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-}
 #flexArea{
-  display: flex;
-  width: fit-content;
   margin: 0 auto 2rem;
   .container{
     width: 350px;
     height: 400px;
-    display: block;
-    margin: auto;
-    background-color: $BG-color;
-        position: relative;
     form{
-      height: 100%;
       #messageHeader{
-        background-color: $messageTheme;
         padding: 0.8rem 1.5rem;
         #nameBox{
           margin-left: 1rem;
@@ -56,68 +43,41 @@
       }
       #allChatLogs{
         height: 74.7%;
-        overflow-y: scroll;
         .chatLog{
           margin: 0.5rem 0.8rem;
           #sendTime{
             font-size: 0.6rem;
-            color: #5c5c5c;
             margin-left: 0.4rem;
           }
         }
       }
       #messageFooter{
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        text-align: center;
         padding: 0.75rem 0;
-        background-color: $messageTheme;
         #msgForm{
-          text-align: start;
           margin-right: 0.5rem;
           padding: 0.5rem 1rem;
-          background-color: #ffffffff;
           border-radius: 25px;
         }
       }
     }
   }
   canvas{
-    display: block;
-    width: fit-content;
     margin-right: 1rem;
     border: 7px solid $blackboard-flame;
-    background-color: $blackboard;
   }
 }
-
-/* スクロールバーここから */
-::-webkit-scrollbar {
-  width: 12px;
-}
-::-webkit-scrollbar-track {
-  background: #e2e2e2;
-}
-::-webkit-scrollbar-thumb {
-  background: #a3a3a3;
-}
-/* スクロールバーここまで */
-
 #selectArea{
-  background-color: $BG-color;
   height: 4rem;
-  display: flex;
   border-radius: 30px;
   #selectAreaContents{
-    width: fit-content;
-    display: flex;
     margin: 0 auto;
-    align-items: center;
     #button{
-      width: fit-content;
-      display: block;
       margin-left: 3rem;
     }
   }
 }
+
+/* mobileここから */
+@media screen and (max-width: 950px) {
+}
+/* mobileここまで */

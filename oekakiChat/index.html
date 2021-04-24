@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1">
     <meta property="og:title" content="黒板であそぼ">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://after-school-black-board.herokuapp.com/">
@@ -174,7 +174,7 @@
                     });
 
 
-                    
+
                     $('canvas').mousedown(function (e) {
                         drawFlag = true;
                         fromX = e.pageX - $(this).offset().left - offset;
@@ -204,13 +204,13 @@
                         drawFlag = false;
                     });
 
-                    
+
 
                     //sumaho
                     $('canvas').bind({
                         'touchstart': function(e) {
                             //console.log('touchstart');
-                    
+
                             drawFlag = true;
                             fromX = e.touches[0].clientX - $(this).offset().left - offset;
                             fromY = e.touches[0].clientY - $(this).offset().top - offset;
@@ -219,8 +219,8 @@
                             //console.log(e.touches[0].pageX);
                             //console.log(fromX)
                             return false;  // for chrome
-                            
-                        }, 
+
+                        },
 
                         'touchmove': function(e) {
                             //console.log('touchmove');
@@ -236,7 +236,7 @@
                         }
 
                     });
-                
+
                     $('li').click(function () {
                         context.strokeStyle = $(this).css('background-color');
                     });
@@ -264,8 +264,8 @@
                         fromY = toY;
 
                     }
-                    
-                    
+
+
                     function draw_sumaho(e) {
                         var toX = e.touches[0].clientX - $('canvas').offset().left - offset;
                         var toY = e.touches[0].clientY - $('canvas').offset().top - offset;

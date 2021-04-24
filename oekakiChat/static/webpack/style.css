@@ -471,6 +471,7 @@ template {
 }
 
 /* 変数宣言 */
+/* 全体ここから */
 html, body {
   width: 100%;
   height: 100%;
@@ -486,38 +487,12 @@ button {
   cursor: pointer;
 }
 
-#save {
-  font-size: 120%;
-  width: 80px;
-  height: 50px;
-}
-
-#clear {
-  font-size: 120%;
-  height: 50px;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  width: fit-content;
-  display: block;
-}
-
-li {
-  cursor: pointer;
-  cursor: hand;
-  display: inline-block;
-  width: 85px;
-  height: 30px;
-  margin: 0 0.3rem;
-}
-
 .material-icons {
   color: #3d3d3d;
 }
 
+/* 全体ここまで */
+/* top.htmlここから */
 /* loading ここから */
 #loader-bg {
   display: none;
@@ -553,57 +528,39 @@ a {
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
-  padding: 1rem 2.5rem;
-  border-radius: 25px;
   display: flex;
   align-items: center;
-  font-size: 1.2rem;
-}
-a #goIcon {
-  margin-left: 0.8rem;
 }
 
-#rouka {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
+/* top.htmlここまで */
+/* index.htmlここから */
+ul {
+  list-style: none;
+  width: fit-content;
+  display: block;
 }
-#rouka .grade {
-  display: flex;
-}
-#rouka .grade .classroom {
-  background-color: #ffffff;
-  margin: 2rem 1rem;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
+
+li {
+  cursor: pointer;
+  cursor: hand;
+  display: inline-block;
 }
 
 #createTheme {
   display: flex;
   width: fit-content;
-  margin: 0 auto 2rem;
   align-items: center;
 }
 #createTheme button {
   display: block;
   width: fit-content;
-  padding: 1rem 1.5rem;
   background-color: #ffffff;
-  border-radius: 25px;
 }
 #createTheme p {
   display: block;
-  width: 9rem;
   height: fit-content;
   background-color: #ffffff;
   text-align: center;
-  margin-right: 2rem;
-  padding: 0.9rem 0;
-  border: 3px outset;
 }
 
 #blackCover {
@@ -624,11 +581,8 @@ a #goIcon {
 #flexArea {
   display: flex;
   width: fit-content;
-  margin: 0 auto 2rem;
 }
 #flexArea .container {
-  width: 350px;
-  height: 400px;
   display: block;
   margin: auto;
   background-color: #ffffff;
@@ -639,43 +593,27 @@ a #goIcon {
 }
 #flexArea .container form #messageHeader {
   background-color: #b9f1ff;
-  padding: 0.8rem 1.5rem;
-}
-#flexArea .container form #messageHeader #nameBox {
-  margin-left: 1rem;
 }
 #flexArea .container form #allChatLogs {
-  height: 74.7%;
   overflow-y: scroll;
 }
-#flexArea .container form #allChatLogs .chatLog {
-  margin: 0.5rem 0.8rem;
-}
 #flexArea .container form #allChatLogs .chatLog #sendTime {
-  font-size: 0.6rem;
   color: #5c5c5c;
-  margin-left: 0.4rem;
 }
 #flexArea .container form #messageFooter {
   position: absolute;
   bottom: 0;
   width: 100%;
   text-align: center;
-  padding: 0.75rem 0;
   background-color: #b9f1ff;
 }
 #flexArea .container form #messageFooter #msgForm {
   text-align: start;
-  margin-right: 0.5rem;
-  padding: 0.5rem 1rem;
-  background-color: #ffffffff;
-  border-radius: 25px;
+  background-color: #ffffff;
 }
 #flexArea canvas {
   display: block;
   width: fit-content;
-  margin-right: 1rem;
-  border: 7px solid #798079;
   background-color: #0B4500;
 }
 
@@ -695,18 +633,144 @@ a #goIcon {
 /* スクロールバーここまで */
 #selectArea {
   background-color: #ffffff;
-  height: 4rem;
   display: flex;
-  border-radius: 30px;
 }
 #selectArea #selectAreaContents {
   width: fit-content;
   display: flex;
-  margin: 0 auto;
   align-items: center;
 }
 #selectArea #selectAreaContents #button {
   width: fit-content;
   display: block;
+}
+
+/* index.htmlここまで */
+a {
+  padding: 0.8rem 2rem;
+  border-radius: 60px;
+  font-size: 1.2em;
+}
+a #goIcon {
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+}
+
+/* PC版デザインここから */
+@media screen and (min-width: 950px) {
+  a {
+    padding: 1rem 2.5rem;
+    border-radius: 25px;
+    font-size: 1.2rem;
+  }
+  a #goIcon {
+    font-size: 1rem;
+    margin-left: 0.8rem;
+  }
+}
+#rouka {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+#rouka .grade {
+  display: flex;
+}
+#rouka .grade .classroom {
+  background-color: #ffffff;
+  margin: 2rem 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* mobileここから */
+/* mobileここまで */
+#save {
+  font-size: 120%;
+  width: 80px;
+  height: 50px;
+}
+
+#clear {
+  font-size: 120%;
+  height: 50px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  width: 85px;
+  height: 30px;
+  margin: 0 0.3rem;
+}
+
+#createTheme {
+  margin: 0 auto 2rem;
+}
+#createTheme button {
+  padding: 1rem 1.5rem;
+  border-radius: 25px;
+}
+#createTheme p {
+  width: 9rem;
+  margin-right: 2rem;
+  padding: 0.9rem 0;
+  border: 3px outset;
+}
+
+#flexArea {
+  margin: 0 auto 2rem;
+}
+#flexArea .container {
+  width: 350px;
+  height: 400px;
+}
+#flexArea .container form #messageHeader {
+  padding: 0.8rem 1.5rem;
+}
+#flexArea .container form #messageHeader #nameBox {
+  margin-left: 1rem;
+}
+#flexArea .container form #allChatLogs {
+  height: 74.7%;
+}
+#flexArea .container form #allChatLogs .chatLog {
+  margin: 0.5rem 0.8rem;
+}
+#flexArea .container form #allChatLogs .chatLog #sendTime {
+  font-size: 0.6rem;
+  margin-left: 0.4rem;
+}
+#flexArea .container form #messageFooter {
+  padding: 0.75rem 0;
+}
+#flexArea .container form #messageFooter #msgForm {
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+}
+#flexArea canvas {
+  margin-right: 1rem;
+  border: 7px solid #798079;
+}
+
+#selectArea {
+  height: 4rem;
+  border-radius: 30px;
+}
+#selectArea #selectAreaContents {
+  margin: 0 auto;
+}
+#selectArea #selectAreaContents #button {
   margin-left: 3rem;
 }
+
+/* mobileここから */
+/* mobileここまで */
