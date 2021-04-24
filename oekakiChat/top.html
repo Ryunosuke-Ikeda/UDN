@@ -35,11 +35,16 @@
     </div>
     <div id="wrap">
         <div id="blackCover"></div>
-        <img src="./static/images/title-pc.png" alt="" title="">
+        <img id="image" src="./static/images/title-pc.png" alt="" title="">
         <a href="/index" class="...">
             <span>放課後の学校に行く</span>
             <span id="goIcon" class="material-icons"><span class="material-icons-outlined">arrow_forward_ios</span></span>
         </a>
     </div>
+    <script>
+        if (window.innerWidth < 950) {
+            document.getElementById("image").src = "./static/images/title-mobile.png";
+        }
+    </script>
 </body>
 </html>

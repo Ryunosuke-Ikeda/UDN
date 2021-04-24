@@ -519,12 +519,15 @@ button {
   z-index: 2;
 }
 
+#image {
+  display: block;
+}
+
 /* loading ここまで */
 a {
   width: fit-content;
   background-color: #ffffff;
   position: absolute;
-  top: 50%;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
@@ -653,10 +656,16 @@ a {
   padding: 0.8rem 2rem;
   border-radius: 60px;
   font-size: 1.2em;
+  top: 80%;
 }
 a #goIcon {
   font-size: 1.5rem;
   margin-left: 0.5rem;
+}
+
+#image {
+  width: 300px;
+  margin: 4rem auto;
 }
 
 /* PC版デザインここから */
@@ -665,10 +674,16 @@ a #goIcon {
     padding: 1rem 2.5rem;
     border-radius: 25px;
     font-size: 1.2rem;
+    top: 65%;
   }
   a #goIcon {
     font-size: 1rem;
     margin-left: 0.8rem;
+  }
+
+  #image {
+    width: fit-content;
+    margin: 5rem auto;
   }
 }
 #rouka {

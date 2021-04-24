@@ -1,11 +1,16 @@
-  a{
+a{
   padding: 0.8rem 2rem;
   border-radius: 60px;
   font-size: 1.2em;
+  top: 80%;
   #goIcon{
     font-size: 1.5rem;
     margin-left: 0.5rem;
   }
+}
+#image{
+  width: 300px;
+  margin: 4rem auto;
 }
 
 /* PC版デザインここから */
@@ -14,9 +19,14 @@
     padding: 1rem 2.5rem;
     border-radius: 25px;
     font-size: 1.2rem;
+    top: 65%;
     #goIcon{
       font-size: 1rem;
       margin-left: 0.8rem;
     }
   }
+  #image{
+  width: fit-content;
+  margin: 5rem auto;
+}
 }

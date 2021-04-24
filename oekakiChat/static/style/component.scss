@@ -51,13 +51,15 @@ button{
     color: #fff;
     z-index: 2;
 }
+#image{
+    display: block;
+}
 /* loading ここまで */
 
 a{
     width: fit-content;
     background-color: $BG-color;
     position: absolute;
-    top: 50%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
