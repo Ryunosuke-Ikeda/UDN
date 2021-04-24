@@ -51,15 +51,19 @@
             <canvas width="500" height="400"></canvas>
             <div class="container">
                 <form class="form-inline">
-                    <div class="form-group">
-                        <label class="roomLabel" id="selectRooms">部屋</label>
-                        <label class="roomLabel" id="nameBox">名前</label>
-                        <label class="nameLabel" for="msgForm">メッセージ</label>
-                        <input type="text" class="form-control" id="msgForm">
-                    </div>
-                    <button type="submit" class="btn btn-primary" id="sendButton">送信</button>
+                        <div id="messageHeader">
+                            <label class="roomLabel" id="selectRooms">部屋</label>
+                            <label class="roomLabel" id="nameBox">名前</label>
+                        </div>
+                        <div id="allChatLogs">
+                            <div id="chatLogs"></div>
+                        </div>
+                        <div id="messageFooter">
+                            <label class="nameLabel" for="msgForm">メッセージ</label>
+                            <input type="text" class="form-control" id="msgForm">
+                            <button type="submit" class="btn btn-primary" id="sendButton"><span class="material-icons">send</span></button>
+                        </div>
                 </form>
-                <div id="chatLogs"></div>
             </div>
         </div>
         <div id="selectArea">

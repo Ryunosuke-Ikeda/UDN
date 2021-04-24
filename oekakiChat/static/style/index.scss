@@ -38,9 +38,26 @@
   width: fit-content;
   margin: 0 auto 2rem;
   .container{
+    height: 400px;
     display: block;
     width: fit-content;
+    margin: auto;
     background-color: $BG-color;
+        position: relative;
+    form{
+      height: 100%;
+      #messageHeader{
+        background-color: #09A8CE;
+      }
+      #allChatLogs{
+        height: 85%;
+        overflow-y: scroll;
+      }
+      #messageFooter{
+        position: absolute;
+        bottom: 0;
+      }
+    }
   }
   canvas{
     display: block;

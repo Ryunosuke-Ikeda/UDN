@@ -617,9 +617,26 @@ a #goIcon {
   margin: 0 auto 2rem;
 }
 #flexArea .container {
+  height: 400px;
   display: block;
   width: fit-content;
+  margin: auto;
   background-color: #ffffff;
+  position: relative;
+}
+#flexArea .container form {
+  height: 100%;
+}
+#flexArea .container form #messageHeader {
+  background-color: #09A8CE;
+}
+#flexArea .container form #allChatLogs {
+  height: 85%;
+  overflow-y: scroll;
+}
+#flexArea .container form #messageFooter {
+  position: absolute;
+  bottom: 0;
 }
 #flexArea canvas {
   display: block;
