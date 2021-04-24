@@ -6,7 +6,7 @@ $(function () {
 });
 
 $(function () {
-  setTimeout('stopload()', 1500);
+  setTimeout('stopload()', 2500);
 });
 
 function stopload() {
