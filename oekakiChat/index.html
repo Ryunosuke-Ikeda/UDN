@@ -30,9 +30,9 @@
             <div class="form-group">
                 <label class="roomLabel" for="rooms">部屋：</label>
                 <select class="form-control" id="rooms">
-                    <option value="room1">部屋1 <span id=1></span></option>
-                    <option value="room2">部屋2 <span id=2></span></option>
-                    <option value="room3">部屋3 <span id=3></span></option>
+                    <option value="room1">部屋1 <span id="room1">&nbsp;</span></option>
+                    <option value="room2">部屋2 <span id="room2">&nbsp;</span></option>
+                    <option value="room3">部屋3 <span id="room3">&nbsp;</span></option>
                 </select>
                 <p>接続数:<span id="count"></span></p>
                 <!--テスト用-->
@@ -97,11 +97,14 @@
             $count.text(data);
         });
         socket.on('memberList', function (data) {
+            memberCount = data;
+        });
+        socket.on('roomList', function (data) {
             console.log(data);
             
-            document.getElementById().textContent = ;
+            document.getElementById().textContent = searchMember(memberCount,data);
         });
-        
+
         // C04. server_to_clientイベント・データを受信する
         socket.on("server_to_client", function (data) {
             appendMsg(data.value)
@@ -230,7 +233,7 @@
         function outLabel() {
             $("#rooms").prop("disabled", true);
         }
-        function searchMember(room, memberList) {
+        function searchMember(memberList, room) {
             for (let i = 0; i < memberList.length; i++) {
                 memberNumber = 0
                 if (memberList[i] === room) {

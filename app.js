@@ -48,7 +48,8 @@ io.sockets.on('connection', function(socket) {
         room = data.value;
         socket.join(room);
         memberCount.push(room);
-        io.sockets.emit('memberList',(memberCount,room));
+        io.sockets.emit('memberList',memberCount);
+        io.sockets.emit('roomList',room);
     });
     // S05. client_to_serverイベント・データを受信する
     socket.on('client_to_server', function(data) {
