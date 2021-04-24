@@ -26,6 +26,47 @@ button{
 }
 /* 全体ここまで */
 
+/* top.htmlここから */
+/* loading ここから */
+#loader-bg {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background: linear-gradient(#6e017c ,#e05f24, #e69c60 );
+    z-index: 1;
+}
+#loader {
+    display: none;
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    margin-top: -100px;
+    margin-left: -100px;
+    text-align: center;
+    color: #fff;
+    z-index: 2;
+}
+/* loading ここまで */
+
+a{
+    width: fit-content;
+    background-color: $BG-color;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+}
+
+/* top.htmlここまで */
+
 /* index.htmlここから */
 ul {
     list-style: none;
