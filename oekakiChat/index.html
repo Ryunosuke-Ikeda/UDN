@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="utf-8">
-        <meta property="og:title" content="黒板であそぼ">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://after-school-black-board.herokuapp.com/">
-        <meta property="og:image" content="https://after-school-black-board.herokuapp.com/static/images/OGP.png" />
-        <meta property="og:description" content="黒板に絵をみんなで同時に書くことができます！">
-        <meta property="og:site_name" content="黒板であそぼ">
-        <meta name="twitter:card" content="summary_large_image">
-        <link rel="stylesheet" href="./static/webpack/style.css">
+    <meta property="og:title" content="黒板であそぼ">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://after-school-black-board.herokuapp.com/">
+    <meta property="og:image" content="https://after-school-black-board.herokuapp.com/static/images/OGP.png" />
+    <meta property="og:description" content="黒板に絵をみんなで同時に書くことができます！">
+    <meta property="og:site_name" content="黒板であそぼ">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="./static/webpack/style.css">
     <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>黒板であそぼ</title>
@@ -22,7 +23,24 @@
         }
     </style>
 </head>
+
 <body>
+    <div>
+        <form class="form-inline">
+            <div class="form-group">
+                <label class="roomLabel" for="rooms">部屋：</label>
+                <select class="form-control" id="rooms">
+                    <option value="room1">部屋1</option>
+                    <option value="room2">部屋2</option>
+                    <option value="room3">部屋3</option>
+                </select>
+                <button type="button" id="addRoom"><span class="material-icons">add</span></button>
+                <label class="nameLabel" for="nameForm">名前:</label>
+                <input type="text" class="form-control" id="nameForm">
+            </div>
+            <button type="submit" class="btn btn-primary" id="sendButton">入室</button>
+        </form>
+    </div>
     <div id="blackCover"></div>
     <div id="center">
         <div id="flexArea">
@@ -30,17 +48,12 @@
             <div class="container">
                 <form class="form-inline">
                     <div class="form-group">
-                        <label class="roomLabel" for="rooms">部屋：</label>
-                        <select class="form-control" id="rooms">
-                            <option value="room1">部屋1</option>
-                            <option value="room2">部屋2</option>
-                            <option value="room3">部屋3</option>
-                        </select>
-                        <button type="button" id="addRoom"><span class="material-icons">add</span></button>
-                        <label class="nameLabel" for="msgForm">名前：</label>
+                        <label class="roomLabel" id="selectRooms">部屋</label>
+                        <label class="roomLabel" id="nameBox">名前</label>
+                        <label class="nameLabel" for="msgForm">メッセージ</label>
                         <input type="text" class="form-control" id="msgForm">
                     </div>
-                    <button type="submit" class="btn btn-primary" id="sendButton">入室</button>
+                    <button type="submit" class="btn btn-primary" id="sendButton">送信</button>
                 </form>
                 <div id="chatLogs"></div>
             </div>
@@ -73,32 +86,36 @@
         var name = '';
 
         // C04. server_to_clientイベント・データを受信する
-        socket.on("server_to_client", function(data){appendMsg(data.value)});
+        socket.on("server_to_client", function (data) { appendMsg(data.value) });
         function appendMsg(text) {
             $("#chatLogs").append("<div>" + text + "</div>");
         }
 
-        $("form").submit(function(e) {
+        $("form").submit(function (e) {
+            var nameMessage = $("#nameForm").val();
             var message = $("#msgForm").val();
             var selectRoom = $("#rooms").val();
             $("#msgForm").val('');
             if (isEnter) {
-              message = "[" + name + "]: " + message;
+                console.log("送ってる");
+
+                message = "[" + name + "]: " + message;
                 // C03. client_to_serverイベント・データを送信する
-                socket.emit("client_to_server", {value : message});
+                socket.emit("client_to_server", { value: message });
             } else {
-                name = message;
+                console.log("入った");
+                name = nameMessage;
                 var entryMessage = name + "さんが入室しました。";
-                socket.emit("client_to_server_join", {value : selectRoom});
+                socket.emit("client_to_server_join", { value: selectRoom });
                 // C05. client_to_server_broadcastイベント・データを送信する
-                socket.emit("client_to_server_broadcast", {value : entryMessage});
+                socket.emit("client_to_server_broadcast", { value: entryMessage });
                 // C06. client_to_server_personalイベント・データを送信する
-                socket.emit("client_to_server_personal", {value : name});
+                socket.emit("client_to_server_personal", { value: name });
                 changeLabel();
 
 
                 //oekaki開始
-                $(function() {
+                $(function () {
                     var offset = 5;
                     var fromX;
                     var fromY;
@@ -129,32 +146,32 @@
                     });
 
 
-                    $('canvas').mousedown(function(e) {
+                    $('canvas').mousedown(function (e) {
                         drawFlag = true;
                         fromX = e.pageX - $(this).offset().left - offset;
                         fromY = e.pageY - $(this).offset().top - offset;
                         return false;  // for chrome
                     });
 
-                    $('canvas').mousemove(function(e) {
+                    $('canvas').mousemove(function (e) {
                         if (drawFlag) {
                             draw(e);
                         }
                     });
 
-                    $('canvas').on('mouseup', function() {
+                    $('canvas').on('mouseup', function () {
                         drawFlag = false;
                     });
 
-                    $('canvas').on('mouseleave', function() {
+                    $('canvas').on('mouseleave', function () {
                         drawFlag = false;
                     });
 
-                    $('li').click(function() {
+                    $('li').click(function () {
                         context.strokeStyle = $(this).css('background-color');
                     });
 
-                    $('#clear').click(function(e) {
+                    $('#clear').click(function (e) {
                         socket.emit('clear send');
                         e.preventDefault();
                         context.clearRect(0, 0, $('canvas').width(), $('canvas').height());
@@ -172,17 +189,16 @@
 
 
                         // サーバへメッセージ送信
-                        socket.emit('server send', { fx:fromX, fy:fromY, tx:toX, ty:toY, color:context.strokeStyle });
+                        socket.emit('server send', { fx: fromX, fy: fromY, tx: toX, ty: toY, color: context.strokeStyle });
                         fromX = toX;
                         fromY = toY;
 
                     }
 
-
-                    $('#save').click(function() {
+                    $('#save').click(function () {
                         var d = $("canvas")[0].toDataURL("image/png");
                         d = d.replace("image/png", "image/octet-stream");
-                        window.open(d,"save");
+                        window.open(d, "save");
                     });
                 });
                 ////oekakiおわり
@@ -192,14 +208,15 @@
         });
 
         function changeLabel() {
-            $(".nameLabel").text("メッセージ：");
             $("#rooms").prop("disabled", true);
-            $("#sendButton").text("送信");
             isEnter = true;
+            $("#selectRooms").text($("#rooms").val());
+            $("#nameBox").text( $("#nameForm").val());
         }
 
 
     </script>
 
 </body>
+
 </html>
