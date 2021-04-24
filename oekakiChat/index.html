@@ -22,9 +22,9 @@
             <div class="form-group">
                 <label class="roomLabel" for="rooms">部屋：</label>
                 <select class="form-control" id="rooms">
-                    <option value="room1">部屋1</option>
-                    <option value="room2">部屋2</option>
-                    <option value="room3">部屋3</option>
+                    <option value="room1">部屋1 <span id="memberCount"></span></option>
+                    <option value="room2">部屋2 <span id="memberCount"></span></option>
+                    <option value="room3">部屋3 <span id="memberCount"></span></option>
                 </select>
                 <button type="button" id="addRoom"><span class="material-icons">add</span></button>
                 <label class="nameLabel" for="msgForm">名前：</label>
@@ -34,21 +34,40 @@
         </form>
         <div id="chatLogs"></div>
     </div>
-
-    <canvas width="500" height="400"></canvas>
-    <div id="selectArea">
-        <ul>
-            <li style="background-color:#000"></li>
-            <li style="background-color:#f00"></li>
-            <li style="background-color:#0f0"></li>
-            <li style="background-color:#00f"></li>
-            <li style="background-color:#ff0"></li>
-            <li style="background-color:#fff"></li>
-        </ul>
-        <div id="button">
-            <button id="save"><span class="material-icons">file_download
-                </span></button>
-            <button id="clear"><span class="material-icons">delete</span></button>
+    <div id="blackCover"></div>
+    <div id="center">
+        <div id="flexArea">
+            <canvas width="500" height="400"></canvas>
+            <div class="container">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label class="roomLabel" id="selectRooms">部屋</label>
+                        <label class="roomLabel" id="nameBox">名前</label>
+                        <label class="nameLabel" for="msgForm">メッセージ</label>
+                        <input type="text" class="form-control" id="msgForm">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="sendButton">送信</button>
+                </form>
+                <div id="chatLogs"></div>
+            </div>
+        </div>
+        <div id="selectArea">
+            <div id="selectAreaContents">
+                <ul>
+                    <li style="background-color:#000"></li>
+                    <li style="background-color:#f00"></li>
+                    <li style="background-color:#0f0"></li>
+                    <li style="background-color:#00f"></li>
+                    <li style="background-color:#ff0"></li>
+                    <li style="background-color:#fff"></li>
+                </ul>
+                <div id="button">
+                    <button id="save"><span class="material-icons">file_download
+                        </span></button>
+                    <button id="clear"><span class="material-icons">delete</span></button>
+                    <button type="submit" class="btn btn-primary" id="sendButton">退室</button>
+                </div>
+            </div>
         </div>
     </div>
     <script src="./static/js/jquery-3.6.0.min.js"></script>
@@ -71,18 +90,18 @@
             var selectRoom = $("#rooms").val();
             $("#msgForm").val('');
             if (isEnter) {
-              message = "[" + name + "]: " + message;
+                message = "[" + name + "]: " + message;
                 // C03. client_to_serverイベント・データを送信する
                 socket.emit("client_to_server", {value : message});
             } else {
-                name = message;
+                name = nameMessage;
                 var entryMessage = name + "さんが入室しました。";
                 socket.emit("client_to_server_join", {value : selectRoom});
                 // C05. client_to_server_broadcastイベント・データを送信する
                 socket.emit("client_to_server_broadcast", {value : entryMessage});
                 // C06. client_to_server_personalイベント・データを送信する
-                socket.emit("client_to_server_personal", {value : name});
-                changeLabel();
+                socket.emit("client_to_server_personal", { value: name });
+                enterLabel();
 
 
                 //oekaki開始
@@ -169,8 +188,8 @@
 
                     $('#save').click(function() {
                         var d = $("canvas")[0].toDataURL("image/png");
-                        d = d.replace("image/png", "image/octet-stream");
-                        window.open(d,"save");
+                        d = d.replace("image/png","image/octet-stream");
+                        window.open(d, "save");
                     });
                 });
                 ////oekakiおわり
@@ -179,11 +198,13 @@
             e.preventDefault();
         });
 
-        function changeLabel() {
-            $(".nameLabel").text("メッセージ：");
+        function enterLabel() {
             $("#rooms").prop("disabled", true);
             $("#sendButton").text("送信");
             isEnter = true;
+        }
+        function outLabel() {
+            $("#rooms").prop("disabled", true);
         }
 
 
