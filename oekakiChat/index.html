@@ -26,6 +26,20 @@
 
 <body id="BGchange">
     <div id="rouka">
+        <div class="content">
+            <a class="js-modal-open" href="" data-target="modal01">クリックでモーダル1を表示</a><br>
+            <br>
+        </div>
+        <div id="modal01" class="modal js-modal">
+            <div class="modal__bg js-modal-close"></div>
+            <div class="modal__content">
+                <p>1つ目モーダルウィンドウです。ここにモーダルウィンドウで表示したいコンテンツを入れます。モーダルウィンドウを閉じる場合は下の「閉じる」をクリックするか、背景の黒い部分をクリックしても閉じることができます。
+                </p>
+                <a class="js-modal-close" href="">閉じる</a>
+            </div>
+            <!--modal__inner-->
+        </div>
+        <!--modal-->
         <!--
         <form class="form-inline">
             <div class="form-group">
@@ -41,297 +55,273 @@
             </div>
             <button type="submit" class="btn btn-primary" id="sendButton">入室</button>
         </form>-->
-        <div class="content">
-            <a class="js-modal-open" href="" data-target="modal01">クリックでモーダル1を表示</a><br>
-            <a class="js-modal-open" href="" data-target="modal02">クリックでモーダル2を表示</a><br>
-            <br>
-            <div class="box">box1</div>
-            <div class="box">box2</div>     
-            <div class="box">box3</div>
-            <div class="box">box4</div>
-            <div class="box">box5</div>
-        </div>
-        <div id="modal01" class="modal js-modal">
-            <div class="modal__bg js-modal-close"></div>
-            <div class="modal__content">
-                <p>1つ目モーダルウィンドウです。ここにモーダルウィンドウで表示したいコンテンツを入れます。モーダルウィンドウを閉じる場合は下の「閉じる」をクリックするか、背景の黒い部分をクリックしても閉じることができます。</p>
-                <a class="js-modal-close" href="">閉じる</a>
-            </div><!--modal__inner-->
-        </div><!--modal-->
-        <div id="modal02" class="modal js-modal">
-            <div class="modal__bg js-modal-close"></div>
-            <div class="modal__content">
-                <p>2つ目モーダルウィンドウです。ここにモーダルウィンドウで表示したいコンテンツを入れます。モーダルウィンドウを閉じる場合は下の「閉じる」をクリックするか、背景の黒い部分をクリックしても閉じることができます。</p>
-                <a class="js-modal-close" href="">閉じる</a>
-            </div><!--modal__inner-->
-        </div><!--modal-->
     </div>
-        <!-- ここに各教室が動的に生成される -->
-        <div id="blackCover"></div>
-        <div id="center" style="display: none;">
-            <div id="createTheme">
-                <p id="generateTheme">&nbsp;</p>
-                <button>お題を生成する</button>
-            </div>
-            <div id="flexArea">
-                <canvas width="500" height="400"></canvas>
-                <div class="container">
-                    <form class="form-inline">
-                        <div id="messageHeader">
-                            <label class="roomLabel" id="selectRooms">部屋</label>
-                            <label class="roomLabel" id="nameBox">名前</label>
-                        </div>
-                        <div id="allChatLogs">
-                            <div id="chatLogs"></div>
-                        </div>
-                        <div id="messageFooter">
-                            <input type="text" class="form-control" id="msgForm" placeholder="メッセージを入力">
-                            <button type="submit" class="btn btn-primary" id="sendButton"><span
-                                    class="material-icons">send</span></button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div id="selectArea">
-                <div id="selectAreaContents">
-                    <ul>
-                        <li style="background-color:#D61A6A"></li>
-                        <li style="background-color:#E68D13"></li>
-                        <li style="background-color:#F8F13B"></li>
-                        <li style="background-color:#18D37D"></li>
-                        <li style="background-color:#1A54D6"></li>
-                    </ul>
-                    <div id="button">
-                        <button id="save"><span class="material-icons">file_download
-                            </span></button>
-                        <button id="clear"><span class="material-icons">delete</span></button>
-                        <button href="/index" type="submit" class="btn btn-primary" id="outButton">退室</button>
+    <!-- ここに各教室が動的に生成される -->
+    <div id="blackCover"></div>
+    <div id="center" style="display: none;">
+        <div id="createTheme">
+            <p id="generateTheme">&nbsp;</p>
+            <button>お題を生成する</button>
+        </div>
+        <div id="flexArea">
+            <canvas width="500" height="400"></canvas>
+            <div class="container">
+                <form class="form-inline">
+                    <div id="messageHeader">
+                        <label class="roomLabel" id="selectRooms">部屋</label>
+                        <label class="roomLabel" id="nameBox">名前</label>
                     </div>
+                    <div id="allChatLogs">
+                        <div id="chatLogs"></div>
+                    </div>
+                    <div id="messageFooter">
+                        <input type="text" class="form-control" id="msgForm" placeholder="メッセージを入力">
+                        <button type="submit" class="btn btn-primary" id="sendButton"><span
+                                class="material-icons">send</span></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="selectArea">
+            <div id="selectAreaContents">
+                <ul>
+                    <li style="background-color:#D61A6A"></li>
+                    <li style="background-color:#E68D13"></li>
+                    <li style="background-color:#F8F13B"></li>
+                    <li style="background-color:#18D37D"></li>
+                    <li style="background-color:#1A54D6"></li>
+                </ul>
+                <div id="button">
+                    <button id="save"><span class="material-icons">file_download
+                        </span></button>
+                    <button id="clear"><span class="material-icons">delete</span></button>
+                    <button href="/index" type="submit" class="btn btn-primary" id="outButton">退室</button>
                 </div>
             </div>
         </div>
-        <script src="./static/js/jquery-3.6.0.min.js"></script>
-        <script src="./static/js/jquery-ui.js"></script>
+    </div>
+    <script src="./static/js/jquery-3.6.0.min.js"></script>
+    <script src="./static/js/jquery-ui.js"></script>
 
-        <script src="/socket.io/socket.io.js"></script>
-        <script src="./static/webpack/bundle.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./static/webpack/bundle.js"></script>
 
-        <script type="text/javascript">
-            var socket = io.connect(); // C02. ソケットへの接続
-            var isEnter = false;
-            var name = '';
+    <script type="text/javascript">
+        var socket = io.connect(); // C02. ソケットへの接続
+        var isEnter = false;
+        var name = '';
 
-            //同時接続人数把握用 部屋の数をいじってください
-            socket.on('memberList', function (data) {
-                roomSize = 15; //部屋の数
-                for (let i = 1; i <= roomSize; i++) {
-                    roomName = "room" + i.toString();
-                    console.log(roomName);
-                    document.getElementById(roomName).textContent = searchMember(data, roomName) + "人";
-                }
-            });//ここまで同時接続人数把握
-
-            // C04. server_to_clientイベント・データを受信する
-            socket.on("server_to_client", function (data) {
-                appendMsg(data.value)
-            });
-            function appendMsg(text) {
-                $("#chatLogs").prepend("<div class='chatLog'>" + text + "</div>");
+        //同時接続人数把握用 部屋の数をいじってください
+        socket.on('memberList', function (data) {
+            roomSize = 15; //部屋の数
+            for (let i = 1; i <= roomSize; i++) {
+                roomName = "room" + i.toString();
+                console.log(roomName);
+                document.getElementById(roomName).textContent = searchMember(data, roomName) + "人";
             }
+        });//ここまで同時接続人数把握
 
-            $("form").submit(function (e) {
-                var nameMessage = $("#nameForm").val();
-                var message = $("#msgForm").val();
-                var selectRoom = $("#rooms").val();
-                $("#msgForm").val('');
-                if (isEnter) {
-                    var sendTime = new Date();
-                    var Hour = sendTime.getHours();
-                    var Min = sendTime.getMinutes();
+        // C04. server_to_clientイベント・データを受信する
+        socket.on("server_to_client", function (data) {
+            appendMsg(data.value)
+        });
+        function appendMsg(text) {
+            $("#chatLogs").prepend("<div class='chatLog'>" + text + "</div>");
+        }
 
-                    message = name + "： " + message + "<span id='sendTime'>" + Hour + ":" + Min + "</span>";
-                    // C03. client_to_serverイベント・データを送信する
-                    socket.emit("client_to_server", { value: message });
-                } else {
-                    name = nameMessage;
-                    var entryMessage = name + "さんが入室しました。";
-                    socket.emit("client_to_server_join", { value: selectRoom });
-                    // C05. client_to_server_broadcastイベント・データを送信する
-                    socket.emit("client_to_server_broadcast", { value: entryMessage });
-                    // C06. client_to_server_personalイベント・データを送信する
-                    socket.emit("client_to_server_personal", { value: name });
-                    enterLabel();
+        $("form").submit(function (e) {
+            var nameMessage = $("#nameForm").val();
+            var message = $("#msgForm").val();
+            var selectRoom = $("#rooms").val();
+            $("#msgForm").val('');
+            if (isEnter) {
+                var sendTime = new Date();
+                var Hour = sendTime.getHours();
+                var Min = sendTime.getMinutes();
 
-
-                    //oekaki開始
-                    $(function () {
-                        var offset = 5;
-                        var fromX;
-                        var fromY;
-                        var drawFlag = false;
-                        var context = $("canvas").get(0).getContext('2d');
-
-                        //var socket = io.connect('http://localhost:3333');
-
-                        var selectRoom = $("#rooms").val();
-
-                        //socket.emit("client_to_server_join", {value : selectRoom});
+                message = name + "： " + message + "<span id='sendTime'>" + Hour + ":" + Min + "</span>";
+                // C03. client_to_serverイベント・データを送信する
+                socket.emit("client_to_server", { value: message });
+            } else {
+                name = nameMessage;
+                var entryMessage = name + "さんが入室しました。";
+                socket.emit("client_to_server_join", { value: selectRoom });
+                // C05. client_to_server_broadcastイベント・データを送信する
+                socket.emit("client_to_server_broadcast", { value: entryMessage });
+                // C06. client_to_server_personalイベント・データを送信する
+                socket.emit("client_to_server_personal", { value: name });
+                enterLabel();
 
 
-                        // サーバからメッセージ受信
-                        socket.on('send user', function (msg) {
-                            tmpColor = context.strokeStyle //色情報を一時保存
-                            context.strokeStyle = msg.color;
-                            context.lineWidth = 2;
-                            context.beginPath();
-                            context.moveTo(msg.fx, msg.fy);
-                            context.lineTo(msg.tx, msg.ty);
-                            context.stroke();
-                            context.closePath();
-                            context.strokeStyle = tmpColor //色情報を呼び出し
-                        });
+                //oekaki開始
+                $(function () {
+                    var offset = 5;
+                    var fromX;
+                    var fromY;
+                    var drawFlag = false;
+                    var context = $("canvas").get(0).getContext('2d');
 
-                        socket.on('clear user', function () {
-                            context.clearRect(0, 0, $('canvas').width(), $('canvas').height());
-                        });
+                    //var socket = io.connect('http://localhost:3333');
+
+                    var selectRoom = $("#rooms").val();
+
+                    //socket.emit("client_to_server_join", {value : selectRoom});
 
 
+                    // サーバからメッセージ受信
+                    socket.on('send user', function (msg) {
+                        tmpColor = context.strokeStyle //色情報を一時保存
+                        context.strokeStyle = msg.color;
+                        context.lineWidth = 2;
+                        context.beginPath();
+                        context.moveTo(msg.fx, msg.fy);
+                        context.lineTo(msg.tx, msg.ty);
+                        context.stroke();
+                        context.closePath();
+                        context.strokeStyle = tmpColor //色情報を呼び出し
+                    });
 
-                        $('canvas').mousedown(function (e) {
+                    socket.on('clear user', function () {
+                        context.clearRect(0, 0, $('canvas').width(), $('canvas').height());
+                    });
+
+
+
+                    $('canvas').mousedown(function (e) {
+                        drawFlag = true;
+                        fromX = e.pageX - $(this).offset().left - offset;
+                        fromY = e.pageY - $(this).offset().top - offset;
+
+                        //console.log('mousedown')
+                        //console.log($(this).offset().top - offset);
+                        //console.log(e.pageX);
+                        //console.log(fromX)
+
+                        return false;  // for chrome
+                    });
+
+                    $('canvas').mousemove(function (e) {
+                        //console.log('mousemove');
+                        //console.log(drawFlag);
+                        if (drawFlag) {
+                            draw(e);
+                        }
+                    });
+
+                    $('canvas').on('mouseup', function () {
+                        drawFlag = false;
+                    });
+
+                    $('canvas').on('mouseleave', function () {
+                        drawFlag = false;
+                    });
+
+
+
+                    //sumaho
+                    $('canvas').bind({
+                        'touchstart': function (e) {
+                            //console.log('touchstart');
+
                             drawFlag = true;
-                            fromX = e.pageX - $(this).offset().left - offset;
-                            fromY = e.pageY - $(this).offset().top - offset;
+                            fromX = e.touches[0].clientX - $(this).offset().left - offset;
+                            fromY = e.touches[0].clientY - $(this).offset().top - offset;
 
-                            //console.log('mousedown')
                             //console.log($(this).offset().top - offset);
-                            //console.log(e.pageX);
+                            //console.log(e.touches[0].pageX);
                             //console.log(fromX)
-
                             return false;  // for chrome
-                        });
 
-                        $('canvas').mousemove(function (e) {
-                            //console.log('mousemove');
+                        },
+
+                        'touchmove': function (e) {
+                            //console.log('touchmove');
                             //console.log(drawFlag);
                             if (drawFlag) {
-                                draw(e);
+                                draw_sumaho(e)
                             }
-                        });
-
-                        $('canvas').on('mouseup', function () {
+                        },
+                        'touchend': function () {
                             drawFlag = false;
-                        });
-
-                        $('canvas').on('mouseleave', function () {
-                            drawFlag = false;
-                        });
-
-
-
-                        //sumaho
-                        $('canvas').bind({
-                            'touchstart': function (e) {
-                                //console.log('touchstart');
-
-                                drawFlag = true;
-                                fromX = e.touches[0].clientX - $(this).offset().left - offset;
-                                fromY = e.touches[0].clientY - $(this).offset().top - offset;
-
-                                //console.log($(this).offset().top - offset);
-                                //console.log(e.touches[0].pageX);
-                                //console.log(fromX)
-                                return false;  // for chrome
-
-                            },
-
-                            'touchmove': function (e) {
-                                //console.log('touchmove');
-                                //console.log(drawFlag);
-                                if (drawFlag) {
-                                    draw_sumaho(e)
-                                }
-                            },
-                            'touchend': function () {
-                                drawFlag = false;
-                                //console.log(drawFlag)
-
-                            }
-
-                        });
-
-                        $('li').click(function () {
-                            context.strokeStyle = $(this).css('background-color');
-                        });
-
-                        $('#clear').click(function (e) {
-                            socket.emit('clear send');
-                            e.preventDefault();
-                            context.clearRect(0, 0, $('canvas').width(), $('canvas').height());
-                        });
-
-                        function draw(e) {
-                            var toX = e.pageX - $('canvas').offset().left - offset;
-                            var toY = e.pageY - $('canvas').offset().top - offset;
-                            context.lineWidth = 2;
-                            context.beginPath();
-                            context.moveTo(fromX, fromY);
-                            context.lineTo(toX, toY);
-                            context.stroke();
-                            context.closePath();
-
-
-                            // サーバへメッセージ送信
-                            socket.emit('server send', { fx: fromX, fy: fromY, tx: toX, ty: toY, color: context.strokeStyle });
-                            fromX = toX;
-                            fromY = toY;
+                            //console.log(drawFlag)
 
                         }
 
-
-                        function draw_sumaho(e) {
-                            var toX = e.touches[0].clientX - $('canvas').offset().left - offset;
-                            var toY = e.touches[0].clientY - $('canvas').offset().top - offset;
-                            context.lineWidth = 2;
-                            context.beginPath();
-                            context.moveTo(fromX, fromY);
-                            context.lineTo(toX, toY);
-                            context.stroke();
-                            context.closePath();
-
-
-                            // サーバへメッセージ送信
-                            socket.emit('server send', { fx: fromX, fy: fromY, tx: toX, ty: toY, color: context.strokeStyle });
-                            fromX = toX;
-                            fromY = toY;
-                        }
-
-                        $('#save').click(function () {
-                            var d = $("canvas")[0].toDataURL("image/png");
-                            d = d.replace("image/png", "image/octet-stream");
-                            window.open(d, "save");
-                        });
                     });
-                    ////oekakiおわり
 
-                }
-                e.preventDefault();
-            });
+                    $('li').click(function () {
+                        context.strokeStyle = $(this).css('background-color');
+                    });
 
-            function enterLabel() {
-                $("#sendButton").text("送信");
-                isEnter = true;
-            }
-            function searchMember(memberList, roomName) {
-                var roomMember = 0;
-                for (let i = 0; i <= memberList.length; i++) {
-                    if (roomName === memberList[i]) {
-                        roomMember += 1;
+                    $('#clear').click(function (e) {
+                        socket.emit('clear send');
+                        e.preventDefault();
+                        context.clearRect(0, 0, $('canvas').width(), $('canvas').height());
+                    });
+
+                    function draw(e) {
+                        var toX = e.pageX - $('canvas').offset().left - offset;
+                        var toY = e.pageY - $('canvas').offset().top - offset;
+                        context.lineWidth = 2;
+                        context.beginPath();
+                        context.moveTo(fromX, fromY);
+                        context.lineTo(toX, toY);
+                        context.stroke();
+                        context.closePath();
+
+
+                        // サーバへメッセージ送信
+                        socket.emit('server send', { fx: fromX, fy: fromY, tx: toX, ty: toY, color: context.strokeStyle });
+                        fromX = toX;
+                        fromY = toY;
+
                     }
-                }
-                return roomMember;
-            }
 
-        </script>
+
+                    function draw_sumaho(e) {
+                        var toX = e.touches[0].clientX - $('canvas').offset().left - offset;
+                        var toY = e.touches[0].clientY - $('canvas').offset().top - offset;
+                        context.lineWidth = 2;
+                        context.beginPath();
+                        context.moveTo(fromX, fromY);
+                        context.lineTo(toX, toY);
+                        context.stroke();
+                        context.closePath();
+
+
+                        // サーバへメッセージ送信
+                        socket.emit('server send', { fx: fromX, fy: fromY, tx: toX, ty: toY, color: context.strokeStyle });
+                        fromX = toX;
+                        fromY = toY;
+                    }
+
+                    $('#save').click(function () {
+                        var d = $("canvas")[0].toDataURL("image/png");
+                        d = d.replace("image/png", "image/octet-stream");
+                        window.open(d, "save");
+                    });
+                });
+                ////oekakiおわり
+
+            }
+            e.preventDefault();
+        });
+
+        function enterLabel() {
+            $("#sendButton").text("送信");
+            isEnter = true;
+        }
+        function searchMember(memberList, roomName) {
+            var roomMember = 0;
+            for (let i = 0; i <= memberList.length; i++) {
+                if (roomName === memberList[i]) {
+                    roomMember += 1;
+                }
+            }
+            return roomMember;
+        }
+
+    </script>
 
 </body>
 
