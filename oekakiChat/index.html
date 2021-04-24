@@ -30,10 +30,12 @@
             <div class="form-group">
                 <label class="roomLabel" for="rooms">部屋：</label>
                 <select class="form-control" id="rooms">
-                    <option value="room1">部屋1 <span id="room1"></span></option>
-                    <option value="room2">部屋2 <span id="room2"></span></option>
-                    <option value="room3">部屋3 <span id="room3"></span></option>
+                    <option value="room1">部屋1 <span id=1></span></option>
+                    <option value="room2">部屋2 <span id=2></span></option>
+                    <option value="room3">部屋3 <span id=3></span></option>
                 </select>
+                <p>接続数:<span id="count"></span></p>
+                <!--テスト用-->
                 <button type="button" id="addRoom"><span class="material-icons">add</span></button>
                 <label class="nameLabel" for="nameForm">名前:</label>
                 <input type="text" class="form-control" id="nameForm">
@@ -89,9 +91,21 @@
         var socket = io.connect(); // C02. ソケットへの接続
         var isEnter = false;
         var name = '';
+        var $count = $('#count');
 
+        socket.on('count', function (data) {
+            $count.text(data);
+        });
+        socket.on('memberList', function (data) {
+            console.log(data);
+            
+            document.getElementById().textContent = ;
+        });
+        
         // C04. server_to_clientイベント・データを受信する
-        socket.on("server_to_client", function (data) { appendMsg(data.value) });
+        socket.on("server_to_client", function (data) {
+            appendMsg(data.value)
+        });
         function appendMsg(text) {
             $("#chatLogs").append("<div>" + text + "</div>");
         }
@@ -146,7 +160,6 @@
                     socket.on('clear user', function () {
                         context.clearRect(0, 0, $('canvas').width(), $('canvas').height());
                     });
-
 
                     $('canvas').mousedown(function (e) {
                         drawFlag = true;
@@ -216,6 +229,15 @@
         }
         function outLabel() {
             $("#rooms").prop("disabled", true);
+        }
+        function searchMember(room, memberList) {
+            for (let i = 0; i < memberList.length; i++) {
+                memberNumber = 0
+                if (memberList[i] === room) {
+                    memberNumber += 1;
+                }
+            }
+            return memberNumber;
         }
 
     </script>

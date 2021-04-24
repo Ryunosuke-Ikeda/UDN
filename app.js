@@ -32,17 +32,23 @@ app.get('/index', function (req, res) {
 // S03. HTTPサーバにソケットをひも付ける（WebSocket有効化）
 //var io = socketio.listen(server);
 let memberCount = [];
+app.get('/auth/',(req,res) => {
+    res.send(memberCount);
+})
 
 // S04. connectionイベントを受信する
 io.sockets.on('connection', function(socket) {
     var room = '';
     var name = '';
+    console.log('コネクション数',socket.client.conn.server.clientsCount);
+    io.sockets.emit('count', socket.client.conn.server.clientsCount);
 
     // roomへの入室は、「socket.join(room名)」
     socket.on('client_to_server_join', function(data) {
         room = data.value;
         socket.join(room);
-        memberCount.push(room)
+        memberCount.push(room);
+        io.sockets.emit('memberList',(memberCount,room));
     });
     // S05. client_to_serverイベント・データを受信する
     socket.on('client_to_server', function(data) {
@@ -93,18 +99,18 @@ io.sockets.on('connection', function(socket) {
             io.to(room).emit('server_to_client', {value : endMessage});
             disconnectMember(room,memberCount);
             console.log(memberCount);
-        }
-
-        ;
+            io.sockets.emit('memberList', memberCount);
+        };
+        console.log('コネクション数',socket.client.conn.server.clientsCount);
+        io.sockets.emit('count', socket.client.conn.server.clientsCount);
     });
 });
 app.use(express.static(path.join(__dirname, '/oekakiChat')));//chat_roomディレクトリを公開
 
+
 function disconnectMember(room,memberList){
-    console.log("起動確認");
     for(let i=0;i<memberList.length;i++){
         if(memberList[i]===room){
-            console.log("消去を確認");
             return memberList.splice(i,1);
         }
     }
