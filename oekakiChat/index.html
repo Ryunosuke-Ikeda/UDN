@@ -2,11 +2,11 @@
 <html lang="ja">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1">
     <meta property="og:title" content="黒板であそぼ">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://after-school-black-board.herokuapp.com/">
-    <meta property="og:image" content="https://after-school-black-board.herokuapp.com/static/images/OGP.png" />
+    <meta property="og:image" content="https://after-school-black-board.herokuapp.com/static/images/ogp-title.png" />
     <meta property="og:description" content="黒板に絵をみんなで同時に書くことができます！">
     <meta property="og:site_name" content="黒板であそぼ">
     <meta name="twitter:card" content="summary_large_image">
@@ -26,19 +26,15 @@
 
 <body id="BGchange">
     <div id="rouka">
+
         <form class="form-inline">
             <div class="form-group">
                 <label class="roomLabel" for="rooms">部屋：</label>
                 <select class="form-control" id="rooms">
-                    <!--<option value="room1">部屋1<span id="23">これ</span></option>
-                    <option value="room2">部屋2<span id="2">これ</span></option>
-                    <option value="room3">部屋3<span id="3">これ</span></option>-->
                     <option value="room1" id="room1">部屋1</option>
                     <option value="room2" id="room2">部屋2</option>
                     <option value="room3" id="room3">部屋3</option>
                 </select>
-                <p>接続数:<span id="count"></span></p>
-                <!--テスト用-->
                 <button type="button" id="addRoom"><span class="material-icons">add</span></button>
                 <label class="nameLabel" for="nameForm">名前:</label>
                 <input type="text" class="form-control" id="nameForm">
@@ -46,14 +42,16 @@
             <button type="submit" class="btn btn-primary" id="sendButton">入室</button>
         </form>
     </div>
+    <!-- ここに各教室が動的に生成される -->
     <div id="blackCover"></div>
     <div id="center" style="display: none;">
         <div id="createTheme">
             <p id="generateTheme">&nbsp;</p>
             <button>お題を生成する</button>
         </div>
+        <div id="responsiveArea">
         <div id="flexArea">
-            <canvas width="500" height="400"></canvas>
+            <canvas id="canvas" width="500" height="400"></canvas>
             <div class="container">
                 <form class="form-inline">
                         <div id="messageHeader">
@@ -83,13 +81,17 @@
                     <button id="save"><span class="material-icons">file_download
                         </span></button>
                     <button id="clear"><span class="material-icons">delete</span></button>
+
                     <button id="eraser">消しゴム</button>
                     <button id="large">大</button>
                     <button id="midium">中</button>
                     <button id="smalle">小</button>
                     <button type="submit" class="btn btn-primary" id="sendButton">退室</button>
+
                 </div>
             </div>
+        </div>
+        </div>
         </div>
     </div>
     <script src="./static/js/jquery-3.6.0.min.js"></script>
@@ -103,14 +105,20 @@
         var isEnter = false;
         var name = '';
 
+        //画面幅によって黒板の横幅を動的に変更する
+        if(window.innerWidth<950){
+            document.getElementById("canvas").width = 300;
+            document.getElementById("canvas").height = 400;
+            document.getElementById("blackCover").style = "height: 35%; background-color: #00000000";
+        }
+
         //同時接続人数把握用 部屋の数をいじってください
         socket.on('memberList', function (data) {
             roomSize = 3; //部屋の数
             for (let i = 1; i <= roomSize; i++) {
                 roomName = "room" + i.toString();
                 //if(roomName === undefined)
-                console.log(roomName);
-                document.getElementById(roomName).textContent = roomName + " " + searchMember(data, roomName) + "人が接続中";
+                document.getElementById(roomName).textContent = searchMember(data, roomName) + "人";
             }
         });//ここまで同時接続人数把握
 
@@ -128,8 +136,6 @@
             var selectRoom = $("#rooms").val();
             $("#msgForm").val('');
             if (isEnter) {
-                console.log("送ってる");
-
                 var sendTime = new Date();
                 var Hour = sendTime.getHours();
                 var Min = sendTime.getMinutes();
@@ -185,7 +191,7 @@
                     });
 
 
-                    
+
                     $('canvas').mousedown(function (e) {
                         drawFlag = true;
                         fromX = e.pageX - $(this).offset().left - offset;
@@ -215,13 +221,13 @@
                         drawFlag = false;
                     });
 
-                    
+
 
                     //sumaho
                     $('canvas').bind({
                         'touchstart': function(e) {
                             //console.log('touchstart');
-                    
+
                             drawFlag = true;
                             fromX = e.touches[0].clientX - $(this).offset().left - offset;
                             fromY = e.touches[0].clientY - $(this).offset().top - offset;
@@ -230,8 +236,8 @@
                             //console.log(e.touches[0].pageX);
                             //console.log(fromX)
                             return false;  // for chrome
-                            
-                        }, 
+
+                        },
 
                         'touchmove': function(e) {
                             //console.log('touchmove');
@@ -247,7 +253,7 @@
                         }
 
                     });
-                
+
                     $('li').click(function () {
                         context.strokeStyle = $(this).css('background-color');
                         //描画モード
@@ -321,8 +327,8 @@
                         fromY = toY;
 
                     }
-                    
-                    
+
+
                     function draw_sumaho(e) {
                         var toX = e.touches[0].clientX - $('canvas').offset().left - offset;
                         var toY = e.touches[0].clientY - $('canvas').offset().top - offset;
@@ -359,13 +365,17 @@
                     });
                 });
                 ////oekakiおわり
+                $("#outButton").click(function() {
+                    if (confirm('ルームを退出しますか？')) {
+                    window.location.href = '/index';
+                  }
+                });
 
             }
             e.preventDefault();
         });
 
         function enterLabel() {
-
             $("#sendButton").text("送信");
             isEnter = true;
         }

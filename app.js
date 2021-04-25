@@ -28,7 +28,6 @@ app.get('/', function (req, res) {
 app.get('/index', function (req, res) {
     res.sendFile(__dirname + '/oekakiChat/index.html');
 });
-
 // S03. HTTPサーバにソケットをひも付ける（WebSocket有効化）
 //var io = socketio.listen(server);
 let memberCount = [];
