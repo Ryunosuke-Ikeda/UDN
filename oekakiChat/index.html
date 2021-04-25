@@ -78,7 +78,7 @@
                         <div id="messageHeader">
                             <label class="roomLabel" id="selectRooms">部屋</label>
                             <label class="roomLabel" id="nameBox">名前</label>
-                            <label class="nowRoomMember" id="nowRoomMember"></label>
+                            <label class="nowRoomMember" id="nowRoomMember">0</label>
                         </div>
                         <div id="allChatLogs">
                             <div id="chatLogs"></div>
@@ -139,6 +139,7 @@
             for (let i = 1; i <= roomSize; i++) {
                 roomName = "room" + i.toString();
                 roomStatus = searchMember(data, roomName) + "人"
+                console.log(roomStatus);
                 document.getElementById(roomName).textContent = roomStatus;
             }
         });//ここまで同時接続人数把握
@@ -175,12 +176,18 @@
             } else {
                 name = nameMessage;
                 var entryMessage = name + "さんが入室しました。";
-                $("#nowRoomMember").text(roomStatus+"接続中");
                 socket.emit("client_to_server_join", { value: selectRoom });
+                socket.on("server_to_client", function (data,roomName) {
+                    roomStatus = searchMember(data, roomName) + "人"
+                    document.getElementById(nowRoomMember).textContent = roomStatus;
+                    //document.getElementById(roomName).textContent = roomStatus;
+                    //$("#nowRoomMember").text(roomStatus+"接続中");   
+                });
                 // C05. client_to_server_broadcastイベント・データを送信する
                 socket.emit("client_to_server_broadcast", { value: entryMessage });
                 // C06. client_to_server_personalイベント・データを送信する
                 socket.emit("client_to_server_personal", { value: name });
+
                 enterLabel();
 
 
@@ -417,7 +424,6 @@
             isEnter = true;
             $("#selectRooms").text($("#rooms").val());
             $("#nameBox").text( $("#nameForm").val());
-            $("#nowRoomMember").text(searchMember(data, roomName) + "人接続中");
         }
         function outLabel() {
             $("#rooms").prop("disabled", true);
