@@ -649,6 +649,14 @@ li {
   width: fit-content;
   display: block;
 }
+#selectArea #selectAreaContents #button button {
+  width: fit-content;
+}
+#selectArea #selectAreaContents #button button img {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+}
 
 /* index.htmlここまで */
 a {
@@ -802,6 +810,12 @@ li {
 #responsiveArea #selectArea #selectAreaContents #button {
   margin-left: 0;
 }
+#responsiveArea #selectArea #selectAreaContents #button #sendButton {
+  margin: 0 0.5rem;
+}
+#responsiveArea #selectArea #selectAreaContents #button button {
+  margin: 0 0.5rem;
+}
 
 /* PC版デザインここから */
 @media screen and (min-width: 950px) {
@@ -881,6 +895,9 @@ li {
     padding: 0.5rem 1rem;
     border-radius: 25px;
   }
+  #responsiveArea #flexArea .container form #messageFooter #sendButton {
+    margin: 0;
+  }
   #responsiveArea #flexArea canvas {
     margin: auto;
     margin-right: 1rem;
@@ -897,6 +914,12 @@ li {
     flex-direction: row;
   }
   #responsiveArea #selectArea #selectAreaContents #button {
-    margin-left: 3rem;
+    margin-left: 2rem;
+  }
+  #responsiveArea #selectArea #selectAreaContents #button #sendButton {
+    margin: 0 0.5rem;
+  }
+  #responsiveArea #selectArea #selectAreaContents #button button {
+    margin: 0 0.5rem;
   }
 }
