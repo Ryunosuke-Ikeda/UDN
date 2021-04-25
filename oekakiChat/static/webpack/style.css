@@ -547,6 +547,18 @@ a {
 #roukaForm .form-group {
   width: fit-content;
 }
+#roukaForm .form-group #nameAreaForm {
+  display: flex;
+  margin: 1rem auto;
+}
+#roukaForm .form-group #nameAreaForm input {
+  border: 1px solid #798079;
+  border-radius: 3px;
+}
+#roukaForm button {
+  width: fit-content;
+  margin: 0.5rem auto;
+}
 
 ul {
   list-style: none;
@@ -726,10 +738,11 @@ a #goIcon {
 /* mobileここから */
 /* mobileここまで */
 #roukaForm {
-  padding: 1rem;
+  padding: 1rem 2rem;
   flex-direction: column;
 }
 #roukaForm .form-group {
+  width: fit-content;
   margin: 0;
 }
 
@@ -835,7 +848,7 @@ li {
 /* PC版デザインここから */
 @media screen and (min-width: 950px) {
   #roukaForm {
-    flex-direction: row;
+    flex-direction: column;
     padding: 1rem 2rem;
   }
   #roukaForm .form-group {

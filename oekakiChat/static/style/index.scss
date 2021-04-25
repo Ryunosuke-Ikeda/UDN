@@ -1,8 +1,9 @@
 
 #roukaForm{
-  padding: 1rem;
+  padding: 1rem 2rem;
   flex-direction: column;
     .form-group{
+      width: fit-content;
       margin: 0;
     }
 }
@@ -106,7 +107,7 @@ li {
 @media screen and (min-width: 950px) {
 
   #roukaForm{
-    flex-direction: row;
+    flex-direction: column;
     padding: 1rem 2rem;
     .form-group{
       margin: 0;
