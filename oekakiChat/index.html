@@ -171,6 +171,9 @@
                     var midiumFlag=true;
                     var largeFlag=false
                     var context = $("canvas").get(0).getContext('2d');
+                    
+                    //色の初期値
+                    context.strokeStyle = '#D61A6A';
 
                     //var socket = io.connect('http://localhost:3333');
 
@@ -181,6 +184,7 @@
 
                     // サーバからメッセージ受信
                     socket.on('send user', function (msg) {
+                        
                         tmpColor = context.strokeStyle //色情報を一時保存
                         context.strokeStyle = msg.color;
                         context.lineWidth = 2;
@@ -190,6 +194,8 @@
                         context.stroke();
                         context.closePath();
                         context.strokeStyle = tmpColor //色情報を呼び出し
+
+                        
                     });
 
                     socket.on('clear user', function () {
@@ -207,6 +213,7 @@
                         //console.log($(this).offset().top - offset);
                         //console.log(e.pageX);
                         //console.log(fromX)
+                        
 
                         return false;  // for chrome
                     });
