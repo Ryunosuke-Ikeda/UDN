@@ -26,7 +26,7 @@
 
 <body id="BGchange">
     <div id="rouka">
-        <form class="form-inline">
+        <!--<form class="form-inline">
             <div class="form-group">
                 <label class="roomLabel" for="rooms">部屋：</label>
                 <select class="form-control" id="rooms">
@@ -38,6 +38,31 @@
                     delete add button
                 <button type="button" id="addRoom"><span class="material-icons">add</span></button>
                 -->
+                <label class="nameLabel" for="nameForm">名前:</label>
+                <input type="text" class="form-control" id="nameForm">
+            </div>
+            <button type="submit" class="btn btn-primary" id="sendButton">入室</button>
+        </form>-->
+        <form class="form-inline">
+            <div class="form-group">
+                <label class="roomLabel" for="rooms">クラス名：</label>
+                <select class="form-control" id="rooms">
+                    <option value="room1" >3-1</option>
+                    <option value="room2" >3-2</option>
+                    <option value="room3" >3-3</option>
+                    <option value="room4" >3-4</option>
+                    <option value="room5" >3-5</option>
+                    <option value="room6" >2-1</option>
+                    <option value="room7" >2-2</option>
+                    <option value="room8" >2-3</option>
+                    <option value="room9" >2-4</option>
+                    <option value="room10" >2-5</option>
+                    <option value="room11" >1-1</option>
+                    <option value="room12" >1-2</option>
+                    <option value="room13" >1-3</option>
+                    <option value="room14" >1-4</option>
+                    <option value="room15" >1-5</option>
+                </select>
                 <label class="nameLabel" for="nameForm">名前:</label>
                 <input type="text" class="form-control" id="nameForm">
             </div>
@@ -59,7 +84,7 @@
                         <div id="messageHeader">
                             <label class="roomLabel" id="selectRooms">部屋</label>
                             <label class="roomLabel" id="nameBox">名前</label>
-                            <label class="room">
+                            <label class="roomMember" id="room">
                         </div>
                         <div id="allChatLogs">
                             <div id="chatLogs"></div>
@@ -98,7 +123,7 @@
     </div>
     <script src="./static/js/jquery-3.6.0.min.js"></script>
     <script src="./static/js/jquery-ui.js"></script>
-
+    <!--<script src="./static/js/addRoom.js"></script>--><!--後で消すよ！　忘れないで！-->
     <script src="/socket.io/socket.io.js"></script>
     <script src="./static/webpack/bundle.js"></script>
 
@@ -116,7 +141,7 @@
 
         //同時接続人数把握用 部屋の数をいじってください
         socket.on('memberList', function (data) {
-            roomSize = 3; //部屋の数
+            roomSize = 15; //部屋の数
             for (let i = 1; i <= roomSize; i++) {
                 roomName = "room" + i.toString();
                 document.getElementById(roomName).textContent = searchMember(data, roomName) + "人";
