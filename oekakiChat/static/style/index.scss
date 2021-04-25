@@ -87,6 +87,12 @@ li {
       flex-direction: column-reverse;
       #button{
         margin-left: 0;
+                #sendButton{
+          margin: 0 0.5rem;
+        }
+        button{
+          margin: 0 0.5rem;
+        }
       }
     }
   }

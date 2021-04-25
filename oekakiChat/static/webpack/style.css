@@ -655,6 +655,7 @@ li {
 #selectArea #selectAreaContents #button button img {
   width: 24px;
   height: 24px;
+  margin: 0;
 }
 
 /* index.htmlここまで */
@@ -808,6 +809,12 @@ li {
 }
 #responsiveArea #selectArea #selectAreaContents #button {
   margin-left: 0;
+}
+#responsiveArea #selectArea #selectAreaContents #button #sendButton {
+  margin: 0 0.5rem;
+}
+#responsiveArea #selectArea #selectAreaContents #button button {
+  margin: 0 0.5rem;
 }
 
 /* PC版デザインここから */
