@@ -649,6 +649,9 @@ li {
   width: fit-content;
   display: block;
 }
+#selectArea #selectAreaContents #button button {
+  width: fit-content;
+}
 
 /* index.htmlここまで */
 a {
@@ -881,6 +884,9 @@ li {
     padding: 0.5rem 1rem;
     border-radius: 25px;
   }
+  #responsiveArea #flexArea .container form #messageFooter #sendButton {
+    margin: 0;
+  }
   #responsiveArea #flexArea canvas {
     margin: auto;
     margin-right: 1rem;
@@ -897,6 +903,12 @@ li {
     flex-direction: row;
   }
   #responsiveArea #selectArea #selectAreaContents #button {
-    margin-left: 3rem;
+    margin-left: 2rem;
+  }
+  #responsiveArea #selectArea #selectAreaContents #button #sendButton {
+    margin: 0 0.5rem;
+  }
+  #responsiveArea #selectArea #selectAreaContents #button button {
+    margin: 0 0.5rem;
   }
 }

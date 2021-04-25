@@ -161,6 +161,9 @@ li {
             padding: 0.5rem 1rem;
             border-radius: 25px;
           }
+          #sendButton{
+            margin: 0;
+          }
         }
       }
     }
@@ -179,7 +182,13 @@ li {
       margin: 0 auto;
       flex-direction: row;
       #button{
-        margin-left: 3rem;
+        margin-left: 2rem;
+        #sendButton{
+          margin: 0 0.5rem;
+        }
+        button{
+          margin: 0 0.5rem;
+        }
       }
     }
   }
