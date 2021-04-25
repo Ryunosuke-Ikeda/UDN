@@ -81,7 +81,12 @@
                     <button id="save"><span class="material-icons">file_download
                         </span></button>
                     <button id="clear"><span class="material-icons">delete</span></button>
-                    <button type="submit" class="btn btn-primary" id="sendButton">退室</button>
+                    <!--<form action="https://after-school-black-board.herokuapp.com/" method="GET"0>-->
+                    <!--<form action="/index" method="GET" id="sendButton"></form>-->
+                    <!--<a href="/index" class="...">-->
+                    <button type="submit" class="btn btn-primary" id="outButton">退室</button>
+                    <!--</a>-->
+                    <!--</form>-->
                 </div>
             </div>
         </div>
@@ -112,8 +117,7 @@
             for (let i = 1; i <= roomSize; i++) {
                 roomName = "room" + i.toString();
                 //if(roomName === undefined)
-                console.log(roomName);
-                document.getElementById(roomName).textContent = roomName + " " + searchMember(data, roomName) + "人が接続中";
+                document.getElementById(roomName).textContent = searchMember(data, roomName) + "人";
             }
         });//ここまで同時接続人数把握
 
@@ -131,8 +135,6 @@
             var selectRoom = $("#rooms").val();
             $("#msgForm").val('');
             if (isEnter) {
-                console.log("送ってる");
-
                 var sendTime = new Date();
                 var Hour = sendTime.getHours();
                 var Min = sendTime.getMinutes();
@@ -300,13 +302,17 @@
                     });
                 });
                 ////oekakiおわり
+                $("#outButton").click(function() {
+                    if (confirm('ルームを退出しますか？')) {
+                    window.location.href = '/index';
+                  }
+                });
 
             }
             e.preventDefault();
         });
 
         function enterLabel() {
-
             $("#sendButton").text("送信");
             isEnter = true;
         }
