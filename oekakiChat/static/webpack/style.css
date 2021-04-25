@@ -652,6 +652,10 @@ li {
 #selectArea #selectAreaContents #button button {
   width: fit-content;
 }
+#selectArea #selectAreaContents #button button img {
+  width: 24px;
+  height: 24px;
+}
 
 /* index.htmlここまで */
 a {
