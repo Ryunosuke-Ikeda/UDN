@@ -43,6 +43,82 @@
     {
       "shiritoriTheme": "猫",
       "drawingTheme": "買い物"
+    },
+    {
+      "shiritoriTheme": "わに",
+      "drawingTheme": ""
+    },
+    {
+      "shiritoriTheme": "黒板消し",
+      "drawingTheme": ""
+    },
+    {
+      "shiritoriTheme": "ほうき",
+      "drawingTheme": ""
+    },
+    {
+      "shiritoriTheme": "ランドセル",
+      "drawingTheme": ""
+    },
+    {
+      "shiritoriTheme": "制服",
+      "drawingTheme": ""
+    },
+    {
+      "shiritoriTheme": "校庭",
+      "drawingTheme": ""
+    },
+    {
+      "shiritoriTheme": "青春",
+      "drawingTheme": ""
+    },
+    {
+      "shiritoriTheme":"python",
+      "drawingTheme": ""
+    },
+    {
+      "shiritoriTheme":"Ruby",
+      "drawingTheme": ""
+    },
+    {
+      "shiritoriTheme":"kotlin",
+      "drawingTheme": ""
+    },
+    {
+      "shiritoriTheme":"swift",
+      "drawingTheme": ""
+    },
+    {
+      "shiritoriTheme":"java",
+      "drawingTheme": ""
+    },
+    {
+      "shiritoriTheme":"go",
+      "drawingTheme": ""
+    },
+    {
+      "shiritoriTheme":"github",
+      "drawingTheme": ""
+    },
+    {
+      "shiritoriTheme":"docker",
+      "drawingTheme": ""
+    },
+    {
+      "shiritoriTheme":"qiita",
+      "drawingTheme": ""
+    },
+    {
+      "shiritoriTheme":"twitter",
+      "drawingTheme": ""
+    },
+    {
+      "shiritoriTheme":"instaglam",
+      "drawingTheme": ""
+    },
+    {
+      "shiritoriTheme":"discord",
+      "drawingTheme": ""
     }
   ]
 }
