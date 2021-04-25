@@ -384,6 +384,8 @@
         function enterLabel() {
             $("#sendButton").text("送信");
             isEnter = true;
+            $("#selectRooms").text($("#rooms").val());
+            $("#nameBox").text( $("#nameForm").val());
         }
         function outLabel() {
             $("#rooms").prop("disabled", true);
