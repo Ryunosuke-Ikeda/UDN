@@ -685,6 +685,50 @@ a #goIcon {
     margin: 5rem auto;
   }
 }
+/*  ---------- モーダルCSSここから ---------- */
+.modalArea {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.4s;
+}
+
+.modalBg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 30, 30, 0.9);
+}
+
+.modalWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  max-width: 500px;
+  padding: 10px 30px;
+  background-color: #fff;
+}
+
+.closeModal {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+/* モーダル表示用クラス */
+.is-show {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ---------- モーダルCSSここまで ---------- */
 #rouka {
   position: absolute;
   top: 50%;
@@ -698,8 +742,6 @@ a #goIcon {
 }
 #rouka .grade .classroom {
   background-color: #ffffff;
-  margin: 2rem 1rem;
-  padding: 1rem;
   display: flex;
   flex-direction: column;
 }

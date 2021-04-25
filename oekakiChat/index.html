@@ -41,7 +41,26 @@
             </div>
             <button type="submit" class="btn btn-primary" id="sendButton">入室</button>
         </form>
+        <button id="openModal">モーダル表示</button>
+        <p id="log"></p>
     </div>
+
+        <!-- モーダルエリアここから -->
+        <section id="modalArea" class="modalArea">
+            <div id="modalBg" class="modalBg"></div>
+            <div class="modalWrapper">
+                <div class="modalContents">
+                    <h1>Test</h1>
+                </div>
+                <div id="closeModal" class="closeModal">
+                    <span class="material-icons">
+                        close
+                    </span>
+                </div>
+            </div>
+        </section>
+        <!-- モーダルエリアここまで -->
+
     <!-- ここに各教室が動的に生成される -->
     <div id="blackCover"></div>
     <div id="center" style="display: none;">
