@@ -1,6 +1,10 @@
-//test
-#sendButton{
-  margin-left: 4rem;
+
+#roukaForm{
+  padding: 1rem;
+  flex-direction: column;
+    .form-group{
+      margin: 0;
+    }
 }
 
 #save {
@@ -100,6 +104,15 @@ li {
 
 /* PC版デザインここから */
 @media screen and (min-width: 950px) {
+
+  #roukaForm{
+    flex-direction: row;
+    padding: 1rem 2rem;
+    .form-group{
+      margin: 0;
+    }
+}
+
   #save {
       font-size: 120%;
       width: 80px;

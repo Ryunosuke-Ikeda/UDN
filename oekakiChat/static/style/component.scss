@@ -70,6 +70,18 @@ a{
 /* top.htmlここまで */
 
 /* index.htmlここから */
+
+#roukaForm{
+    width: fit-content;
+    display: flex;
+    background-color: $BG-color;
+    margin: 0 auto;
+    border-radius: 40px;
+    .form-group{
+        width: fit-content;
+    }
+}
+
 ul {
     list-style: none;
     width: fit-content;
