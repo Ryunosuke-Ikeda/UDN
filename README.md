@@ -1,12 +1,17 @@
-# 黒板であそぼ &#x1f3eb;  &#x1f3a8;
+# あの日できなかったいたずらを　〜もう1度あの教室で君と〜 &#x1f3eb;  &#x1f3a8;
 複数人で同時にお絵かきをして遊ぶことができるWebアプリケーションです。<br>
 <image src="./oekakiChat/static/images/OGP.png" width="400px">
 
 ## &#x1f973; 遊び方
+- 
 
 ## 	&#x2728; アプリのURL
+- https://after-school-black-board.herokuapp.com/
 
 ## &#x1f4bb; 使用技術
+- Node.js
+- Socket.IO
+- Jquery
 
 ## &#x1f331; ディレクトリ構造
 
