@@ -70,6 +70,30 @@ a{
 /* top.htmlここまで */
 
 /* index.htmlここから */
+
+#roukaForm{
+    width: fit-content;
+    display: flex;
+    background-color: $BG-color;
+    margin: 0 auto;
+    border-radius: 40px;
+    .form-group{
+        width: fit-content;
+        #nameAreaForm{
+            display: flex;
+            margin: 1rem auto;
+            input{
+                border: 1px solid $blackboard-flame;
+                border-radius: 3px;
+            }
+        }
+    }
+            button{
+            width: fit-content;
+            margin: 0.5rem auto;
+        }
+}
+
 ul {
     list-style: none;
     width: fit-content;

@@ -537,6 +537,29 @@ a {
 
 /* top.htmlここまで */
 /* index.htmlここから */
+#roukaForm {
+  width: fit-content;
+  display: flex;
+  background-color: #ffffff;
+  margin: 0 auto;
+  border-radius: 40px;
+}
+#roukaForm .form-group {
+  width: fit-content;
+}
+#roukaForm .form-group #nameAreaForm {
+  display: flex;
+  margin: 1rem auto;
+}
+#roukaForm .form-group #nameAreaForm input {
+  border: 1px solid #798079;
+  border-radius: 3px;
+}
+#roukaForm button {
+  width: fit-content;
+  margin: 0.5rem auto;
+}
+
 ul {
   list-style: none;
   width: fit-content;
@@ -714,8 +737,13 @@ a #goIcon {
 
 /* mobileここから */
 /* mobileここまで */
-#sendButton {
-  margin-left: 4rem;
+#roukaForm {
+  padding: 1rem 2rem;
+  flex-direction: column;
+}
+#roukaForm .form-group {
+  width: fit-content;
+  margin: 0;
 }
 
 #save {
@@ -819,6 +847,14 @@ li {
 
 /* PC版デザインここから */
 @media screen and (min-width: 950px) {
+  #roukaForm {
+    flex-direction: column;
+    padding: 1rem 2rem;
+  }
+  #roukaForm .form-group {
+    margin: 0;
+  }
+
   #save {
     font-size: 120%;
     width: 80px;
