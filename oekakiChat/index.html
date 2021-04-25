@@ -34,15 +34,9 @@
                     <option value="room2" id="room2">部屋2</option>
                     <option value="room3" id="room3">部屋3</option>
                 </select>
-                <!--
                     delete add button
                 <button type="button" id="addRoom"><span class="material-icons">add</span></button>
                 -->
-                <label class="nameLabel" for="nameForm">名前:</label>
-                <input type="text" class="form-control" id="nameForm">
-            </div>
-            <button type="submit" class="btn btn-primary" id="sendButton">入室</button>
-        </form>-->
         <form class="form-inline">
             <div class="form-group">
                 <label class="roomLabel" for="rooms">クラス名：</label>
@@ -84,7 +78,7 @@
                         <div id="messageHeader">
                             <label class="roomLabel" id="selectRooms">部屋</label>
                             <label class="roomLabel" id="nameBox">名前</label>
-                            <label class="roomMember" id="room">
+                            <label class="nowRoomMember" id="nowRoomMember"></label>
                         </div>
                         <div id="allChatLogs">
                             <div id="chatLogs"></div>
@@ -144,7 +138,8 @@
             roomSize = 15; //部屋の数
             for (let i = 1; i <= roomSize; i++) {
                 roomName = "room" + i.toString();
-                document.getElementById(roomName).textContent = searchMember(data, roomName) + "人";
+                roomStatus = searchMember(data, roomName) + "人"
+                document.getElementById(roomName).textContent = roomStatus;
             }
         });//ここまで同時接続人数把握
 
@@ -180,6 +175,7 @@
             } else {
                 name = nameMessage;
                 var entryMessage = name + "さんが入室しました。";
+                $("#nowRoomMember").text(roomStatus+"接続中");
                 socket.emit("client_to_server_join", { value: selectRoom });
                 // C05. client_to_server_broadcastイベント・データを送信する
                 socket.emit("client_to_server_broadcast", { value: entryMessage });
@@ -421,6 +417,7 @@
             isEnter = true;
             $("#selectRooms").text($("#rooms").val());
             $("#nameBox").text( $("#nameForm").val());
+            $("#nowRoomMember").text(searchMember(data, roomName) + "人接続中");
         }
         function outLabel() {
             $("#rooms").prop("disabled", true);
