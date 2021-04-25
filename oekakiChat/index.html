@@ -26,7 +26,6 @@
 
 <body id="BGchange">
     <div id="rouka">
-
         <form class="form-inline">
             <div class="form-group">
                 <label class="roomLabel" for="rooms">部屋：</label>
@@ -57,6 +56,7 @@
                         <div id="messageHeader">
                             <label class="roomLabel" id="selectRooms">部屋</label>
                             <label class="roomLabel" id="nameBox">名前</label>
+                            <label class="room">
                         </div>
                         <div id="allChatLogs">
                             <div id="chatLogs"></div>
@@ -87,7 +87,6 @@
                     <button id="midium">中</button>
                     <button id="smalle">小</button>
                     <button type="submit" class="btn btn-primary" id="sendButton">退室</button>
-
                 </div>
             </div>
         </div>
@@ -117,7 +116,6 @@
             roomSize = 3; //部屋の数
             for (let i = 1; i <= roomSize; i++) {
                 roomName = "room" + i.toString();
-                //if(roomName === undefined)
                 document.getElementById(roomName).textContent = searchMember(data, roomName) + "人";
             }
         });//ここまで同時接続人数把握
@@ -135,6 +133,14 @@
             var message = $("#msgForm").val();
             var selectRoom = $("#rooms").val();
             $("#msgForm").val('');
+
+            //名前が空なら返すeventキャンセル
+            if(!$("#nameForm").val()){
+                console.log("反応してるよ");
+                    confirm('名前を入力してください');
+                    document.nameForm.submit();
+                    return false;
+            }else{
             if (isEnter) {
                 var sendTime = new Date();
                 var Hour = sendTime.getHours();
@@ -370,7 +376,7 @@
                     window.location.href = '/index';
                   }
                 });
-
+            }
             }
             e.preventDefault();
         });
