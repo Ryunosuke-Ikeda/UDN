@@ -8,6 +8,7 @@ window.onload = function () {
       document.getElementById("grade"+i).insertAdjacentHTML('beforeend', '</div id="modal'+roomNumber+'" class="modal js-modal"><div class="modal__bg js-modal-close"></div><div class="modal__content"><p>1つ目モーダルウィンドウです。ここにモーダルウィンドウで表示したいコンテンツを入れます。モーダルウィンドウを閉じる場合は下の「閉じる」をクリックするか、背景の黒い部分をクリックしても閉じることができます。</p><a class="js-modal-close" href="">閉じる</a></div></div>');
     }
     document.getElementById("rouka").insertAdjacentHTML('beforeend', '</div>');
+    console.log("テストだよ");
   }
 }
 

@@ -615,7 +615,7 @@ a #goIcon {
 }
 
 .modal__content {
-  background: #fff;
+  background: #f00;
   left: 50%;
   padding: 40px;
   position: absolute;
