@@ -27,3 +27,7 @@
   - createTheme()
     - 乱数を生成している
     - 乱数と一致するtheme.jsonの配列番号に格納されているお題を表示させている
+
+- rouka.js
+  - 入室ボタンを押すと、廊下で表示している要素のstyleを `display: none` に変更し、教室で表示する要素にかかっている `display: none` を消去することで、擬似的にページ遷移したように見せている
+  - 背景画像も廊下(BG-rouka.jpeg)から教室(BG-index.jpeg)に変更している
